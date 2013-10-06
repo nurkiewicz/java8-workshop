@@ -1,12 +1,15 @@
 package pl.warsjawa.java8;
 
 import org.junit.Test;
+import org.mockito.InOrder;
 
 import java.util.Date;
 import java.util.function.*;
 
 import static org.fest.assertions.api.Assertions.assertThat;
+import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 /**
  * - Use explicit Function, Predicate, Supplier, Consuner (like Guava)
@@ -17,7 +20,7 @@ public class Lesson02_FunctionTest {
 
 	@Test
 	public void shouldPrependHello() {
-		final Function<Integer, String> fun = null;
+		final Function<Integer, String> fun = integer -> "Answer is " + integer;
 
 		assertThat(fun.apply(42)).isEqualTo("Answer is 42");
 	}
@@ -46,6 +49,10 @@ public class Lesson02_FunctionTest {
 
 		consumer.accept(1000L);
 		consumer.accept(2000L);
+
+		final InOrder order = inOrder(dateMock);
+		order.verify(dateMock).setTime(1000L);
+		order.verify(dateMock).setTime(2000L);
 	}
 
 	@Test
@@ -56,6 +63,10 @@ public class Lesson02_FunctionTest {
 
 		consumer.accept(1000L);
 		consumer.accept(2000L);
+
+		final InOrder order = inOrder(dateMock);
+		order.verify(dateMock).setTime(1000L);
+		order.verify(dateMock).setTime(2000L);
 	}
 
 
