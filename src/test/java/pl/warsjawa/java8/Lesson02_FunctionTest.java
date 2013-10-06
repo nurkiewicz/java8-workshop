@@ -20,7 +20,7 @@ public class Lesson02_FunctionTest {
 
 	@Test
 	public void shouldPrependHello() {
-		final Function<Integer, String> fun = integer -> "Answer is " + integer;
+		final Function<Integer, String> fun = null;
 
 		assertThat(fun.apply(42)).isEqualTo("Answer is 42");
 	}
