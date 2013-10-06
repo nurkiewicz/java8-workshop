@@ -13,8 +13,9 @@ import static org.mockito.Mockito.verify;
 
 /**
  * - Use explicit Function, Predicate, Supplier, Consuner (like Guava)
- * - Replace functional interface with lambda
- * - Method references
+ * - Change Encrypter to class taking Function<Byte, Byte>
+ * - Turning Function, Supplier and Producer into lambda
+ * - Method references (method, static method, constructor)
  */
 public class Lesson02_FunctionTest {
 
