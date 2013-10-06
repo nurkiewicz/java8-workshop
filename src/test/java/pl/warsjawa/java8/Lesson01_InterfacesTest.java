@@ -27,7 +27,7 @@ import static org.junit.runners.Parameterized.Parameters;
 public class Lesson01_InterfacesTest {
 
 	@Parameters
-	public static Collection<Object[]> data() {
+	public static Collection<Object[]> encrypterAndExpected() {
 		Object[][] data = new Object[][]{
 				{new ReverseEncrypter(), new byte[]{-91, -101, -111}},
 				{new RotEncrypter(), new byte[]{103, 113, 123}},
