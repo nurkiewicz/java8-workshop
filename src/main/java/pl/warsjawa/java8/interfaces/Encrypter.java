@@ -9,7 +9,7 @@ import java.nio.charset.Charset;
  * @author Tomasz Nurkiewicz
  * @since 02.10.13, 21:54
  */
-interface Encrypter {
+public interface Encrypter {
 	byte[] encode(byte[] bytes);
 
 	byte[] encode(String str, Charset charset);

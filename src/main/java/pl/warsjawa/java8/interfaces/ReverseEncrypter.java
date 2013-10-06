@@ -11,13 +11,13 @@ import java.nio.charset.Charset;
  * @author Tomasz Nurkiewicz
  * @since 02.10.13, 21:54
  */
-class XorEncrypter implements Encrypter {
+public class ReverseEncrypter implements Encrypter {
 
 	@Override
 	public byte[] encode(byte[] bytes) {
 		final byte[] result = new byte[bytes.length];
 		for (int i = 0; i < bytes.length; ++i) {
-			result[i] = (byte) (bytes[i] ^ 0xCC);
+			result[i] = (byte) (0xFF - bytes[i]);
 		}
 		return result;
 	}

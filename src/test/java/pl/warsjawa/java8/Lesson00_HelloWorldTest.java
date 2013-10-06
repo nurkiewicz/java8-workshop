@@ -10,8 +10,7 @@ import static java.util.stream.Collectors.toList;
 import static org.fest.assertions.api.Assertions.assertThat;
 
 /**
- * @author Tomasz Nurkiewicz
- * @since 28.09.13, 23:36
+ * - Smoke test
  */
 public class Lesson00_HelloWorldTest {
 

@@ -13,7 +13,7 @@ import java.util.stream.Stream;
  * @author Tomasz Nurkiewicz
  * @since 02.10.13, 21:54
  */
-class RotEncrypter implements Encrypter {
+public class RotEncrypter implements Encrypter {
 
 	@Override
 	public byte[] encode(byte[] bytes) {
