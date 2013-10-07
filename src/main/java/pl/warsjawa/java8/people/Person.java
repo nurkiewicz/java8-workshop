@@ -1,12 +1,10 @@
-package pl.warsjawa.java8;
+package pl.warsjawa.java8.people;
 
-import java.time.Instant;
 import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
-/**
- * @author Tomasz Nurkiewicz
- * @since 28.09.13, 23:42
- */
 public class Person {
 
 	private final String name;
@@ -14,13 +12,15 @@ public class Person {
 	private final int weight;
 	private final int height;
 	private final LocalDate dateOfBirth;
+	private final Set<Phone> phoneNumbers;
 
-	public Person(String name, Sex sex, int weight, int height, LocalDate dateOfBirth) {
+	public Person(String name, Sex sex, int weight, int height, LocalDate dateOfBirth, Phone... phoneNumbers) {
 		this.name = name;
 		this.sex = sex;
 		this.weight = weight;
 		this.height = height;
 		this.dateOfBirth = dateOfBirth;
+		this.phoneNumbers = new HashSet<>(Arrays.asList(phoneNumbers));
 	}
 
 	public String getName() {
@@ -41,6 +41,10 @@ public class Person {
 
 	public int getWeight() {
 		return weight;
+	}
+
+	public Set<Phone> getPhoneNumbers() {
+		return phoneNumbers;
 	}
 
 	@Override

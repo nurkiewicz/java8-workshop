@@ -1,4 +1,4 @@
-package pl.warsjawa.java8;
+package pl.warsjawa.java8.people;
 
 /**
  * @author Tomasz Nurkiewicz
