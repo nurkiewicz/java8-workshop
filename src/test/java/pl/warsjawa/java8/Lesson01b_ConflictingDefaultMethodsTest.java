@@ -16,14 +16,14 @@ public class Lesson01b_ConflictingDefaultMethodsTest {
 	private final RuleEngine ruleEngine = new RuleEngine();
 
 	@Test
-	public void shouldReturnValueFromJob() {
+	public void shouldExtendFewInterfaces() {
 		assertThat(ruleEngine).isInstanceOf(Job.class);
 		assertThat(ruleEngine).isInstanceOf(Engine.class);
 		assertThat(ruleEngine).isInstanceOf(Lifecycle.class);
 	}
 
 	@Test
-	public void test() {
+	public void shouldReturnValueFromJob() {
 		assertThat(ruleEngine.start()).isEqualTo(2);
 	}
 
