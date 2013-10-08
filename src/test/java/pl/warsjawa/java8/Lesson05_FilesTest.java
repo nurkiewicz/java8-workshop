@@ -3,10 +3,8 @@ package pl.warsjawa.java8;
 import org.junit.Test;
 import pl.warsjawa.java8.people.Person;
 import pl.warsjawa.java8.people.PersonDao;
-import pl.warsjawa.java8.people.Sex;
 
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
@@ -19,21 +17,6 @@ import static org.fest.assertions.api.Assertions.assertThat;
 public class Lesson05_FilesTest {
 
 	private final PersonDao dao = new PersonDao();
-
-	private Person parseLine(String line) {
-		final String[] columns = line.split(",");
-		return new Person(
-				columns[0],
-				Sex.valueOf(columns[1]),
-				Integer.parseInt(columns[2]),
-				Integer.parseInt(columns[3]),
-				LocalDate.of(
-						Integer.parseInt(columns[6]),
-						Integer.parseInt(columns[5]),
-						Integer.parseInt(columns[4])
-				)
-		);
-	}
 
 	@Test
 	public void shouldLoadAllPeople() throws IOException {
