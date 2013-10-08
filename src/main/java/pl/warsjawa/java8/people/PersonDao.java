@@ -6,14 +6,21 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
-import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+
+import static java.util.stream.Collectors.toList;
 
 public class PersonDao {
 
 	public List<Person> loadPeopleDatabase() throws IOException {
 		try (BufferedReader bufferedReader = open("/people.csv")) {
-			return Collections.emptyList(); //bufferedReader.lines().
+			return bufferedReader.lines().
+					filter(line -> !line.startsWith("#")).
+					map(this::parseLine).
+					filter(p -> !p.getName().isEmpty()).
+					sorted(Comparator.comparing(Person::getName).thenComparing(Person::getDateOfBirth)).
+					collect(toList());
 		}
 	}
 

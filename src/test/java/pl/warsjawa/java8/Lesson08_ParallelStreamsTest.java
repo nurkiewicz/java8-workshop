@@ -1,16 +1,24 @@
 package pl.warsjawa.java8;
 
 import org.junit.Test;
+import pl.warsjawa.java8.people.PersonDao;
 
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.io.IOException;
 
 /**
- * @author Tomasz Nurkiewicz
- * @since 30.09.13, 21:53
+ * - run time difference
+ * - unspecified order
+ * - commonPool()
  */
 public class Lesson08_ParallelStreamsTest {
+
+	private final PersonDao dao = new PersonDao();
+
+	@Test
+	public void parallel() throws IOException {
+		dao.loadPeopleDatabase().parallelStream();
+
+	}
 
 
 }
