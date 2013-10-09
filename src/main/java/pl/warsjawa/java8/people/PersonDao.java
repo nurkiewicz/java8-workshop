@@ -13,7 +13,7 @@ import static java.util.stream.Collectors.toList;
 
 public class PersonDao {
 
-	public List<Person> loadPeopleDatabase() throws IOException {
+	public List<Person> loadPeopleDatabase() {
 		try (BufferedReader bufferedReader = open("/people.csv")) {
 			return bufferedReader.lines().
 					filter(line -> !line.startsWith("#")).
@@ -21,6 +21,8 @@ public class PersonDao {
 					filter(p -> !p.getName().isEmpty()).
 					sorted(Comparator.comparing(Person::getName).thenComparing(Person::getDateOfBirth)).
 					collect(toList());
+		} catch (IOException e) {
+			throw new RuntimeException(e);
 		}
 	}
 

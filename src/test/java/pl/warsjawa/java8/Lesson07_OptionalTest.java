@@ -13,7 +13,7 @@ import static pl.warsjawa.java8.people.Sex.MALE;
 /**
  * map/filter/flatMap/ifPresent
  */
-public class Lesson06_OptionalTest {
+public class Lesson07_OptionalTest {
 
 	private Person findPersonOrNull(int id) {
 		if (id > 0) {

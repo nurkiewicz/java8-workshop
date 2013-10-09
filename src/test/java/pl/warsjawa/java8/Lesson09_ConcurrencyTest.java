@@ -6,7 +6,7 @@ package pl.warsjawa.java8;
  * - Atomic* improvements
  * -
  */
-public class Lesson08b_ConcurrencyTest {
+public class Lesson09_ConcurrencyTest {
 }
 
 
