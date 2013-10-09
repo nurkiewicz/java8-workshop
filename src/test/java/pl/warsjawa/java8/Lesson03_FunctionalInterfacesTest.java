@@ -73,11 +73,3 @@ public class Lesson03_FunctionalInterfacesTest {
 
 }
 
-@FunctionalInterface
-interface RandomSource {
-
-	int oneOrMinusOne();
-
-//	int oneTwoOrThree();
-
-}
