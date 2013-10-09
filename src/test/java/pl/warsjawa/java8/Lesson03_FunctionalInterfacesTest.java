@@ -1,5 +1,6 @@
 package pl.warsjawa.java8;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import javax.swing.*;
@@ -15,6 +16,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
  * - What is a functional interface? @FunctionalInterface
  * - Using lambdas instead of plain old Java classes (JButton)
  */
+@Ignore
 public class Lesson03_FunctionalInterfacesTest {
 
 	private final Random random = new Random();

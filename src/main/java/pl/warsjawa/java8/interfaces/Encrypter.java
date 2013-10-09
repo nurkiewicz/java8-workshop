@@ -5,10 +5,6 @@ import java.io.InputStream;
 import java.io.Reader;
 import java.nio.charset.Charset;
 
-/**
- * @author Tomasz Nurkiewicz
- * @since 02.10.13, 21:54
- */
 public interface Encrypter {
 	byte[] encode(byte[] bytes);
 

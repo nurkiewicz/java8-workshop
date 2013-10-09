@@ -1,5 +1,6 @@
 package pl.warsjawa.java8;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.InOrder;
 
@@ -9,7 +10,6 @@ import java.util.function.*;
 import static org.fest.assertions.api.Assertions.assertThat;
 import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 
 /**
  * - Use explicit Function, Predicate, Supplier, Consuner (like Guava)
@@ -17,6 +17,7 @@ import static org.mockito.Mockito.verify;
  * - Turning Function, Supplier and Producer into lambda
  * - Method references (method, static method, constructor)
  */
+@Ignore
 public class Lesson02_FunctionTest {
 
 	@Test

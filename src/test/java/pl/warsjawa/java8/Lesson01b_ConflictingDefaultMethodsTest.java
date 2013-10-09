@@ -1,5 +1,6 @@
 package pl.warsjawa.java8;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import pl.warsjawa.java8.defmethods.Engine;
 import pl.warsjawa.java8.defmethods.Job;
@@ -11,6 +12,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
 /**
  * - Conflicting default methods
  */
+@Ignore
 public class Lesson01b_ConflictingDefaultMethodsTest {
 
 	private final RuleEngine ruleEngine = new RuleEngine();

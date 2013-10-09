@@ -1,5 +1,6 @@
 package pl.warsjawa.java8;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import pl.warsjawa.java8.people.Person;
 import pl.warsjawa.java8.people.PersonDao;
@@ -16,6 +17,7 @@ import static org.fest.assertions.data.Offset.offset;
 /**
  * - Various collectors, grouping, average, toList, etc.
  */
+@Ignore
 public class Lesson06_CollectorsTest {
 
 	private final PersonDao dao = new PersonDao();

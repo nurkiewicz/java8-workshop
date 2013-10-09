@@ -6,20 +6,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
 import java.nio.charset.Charset;
-import java.util.Arrays;
-import java.util.stream.Stream;
 
-/**
- * @author Tomasz Nurkiewicz
- * @since 02.10.13, 21:54
- */
 public class RotEncrypter implements Encrypter {
 
 	@Override
 	public byte[] encode(byte[] bytes) {
 		final byte[] result = new byte[bytes.length];
 		for (int i = 0; i < bytes.length; ++i) {
-			result[i] = (byte)(bytes[i] + 13);
+			result[i] = (byte) (bytes[i] + 13);
 		}
 		return result;
 	}

@@ -1,5 +1,6 @@
 package pl.warsjawa.java8;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import pl.warsjawa.java8.people.Person;
 import pl.warsjawa.java8.people.Phone;
@@ -22,6 +23,7 @@ import static pl.warsjawa.java8.people.Sex.MALE;
  * - More complex operations on Stream, (map, filter, forEach, sorted)
  * - Only toList() Collector
  */
+@Ignore
 public class Lesson04_StreamsTest {
 
 	public static final List<Person> PEOPLE = Arrays.asList(

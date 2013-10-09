@@ -1,5 +1,6 @@
 package pl.warsjawa.java8;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import pl.warsjawa.java8.people.Person;
 
@@ -13,6 +14,7 @@ import static pl.warsjawa.java8.people.Sex.MALE;
 /**
  * map/filter/flatMap/ifPresent
  */
+@Ignore
 public class Lesson07_OptionalTest {
 
 	private Person findPersonOrNull(int id) {

@@ -1,6 +1,7 @@
 package pl.warsjawa.java8;
 
 import org.junit.After;
+import org.junit.Ignore;
 import org.junit.Test;
 import pl.warsjawa.java8.people.Person;
 import pl.warsjawa.java8.people.PersonService;
@@ -21,6 +22,7 @@ import static org.fest.assertions.api.Assertions.offset;
  * - applyToEither/acceptEither - transform/wait for first
  * - allOf/anyOf
  */
+@Ignore
 public class Lesson10_FuturesTest {
 
 	public static final String VIKTORIA = "Viktoria";

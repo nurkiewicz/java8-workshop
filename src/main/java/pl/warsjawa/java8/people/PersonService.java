@@ -5,10 +5,6 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-/**
- * @author Tomasz Nurkiewicz
- * @since 09.10.13, 19:59
- */
 public class PersonService implements AutoCloseable {
 
 	private final ExecutorService pool = Executors.newFixedThreadPool(8);
