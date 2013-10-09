@@ -8,7 +8,7 @@ Run `mvn test` to make sure you have JDK 8 and all dependencies in place.
 
 ### IDE
 
-Run `Lesson00_HelloWorldTest.java` and make sure it compiles and passes.
+Run `Lesson00_HelloWorldTest.java` from your favourite IDE and make sure it compiles and passes.
 
 ## Troubleshooting
 
