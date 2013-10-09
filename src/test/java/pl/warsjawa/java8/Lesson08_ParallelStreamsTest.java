@@ -17,7 +17,6 @@ public class Lesson08_ParallelStreamsTest {
 	@Test
 	public void parallel() throws IOException {
 		dao.loadPeopleDatabase().parallelStream();
-
 	}
 
 
