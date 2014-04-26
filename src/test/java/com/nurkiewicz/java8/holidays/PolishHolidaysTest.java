@@ -13,6 +13,12 @@ import static java.time.Month.MAY;
 import static java.time.Month.OCTOBER;
 import static org.fest.assertions.api.Assertions.assertThat;
 
+/**
+ * Tasks:
+ * - move duplicated code to default methods in interface
+ * - move factory to static interface method
+ * - refactor nextWorkingDayAfter/nextHolidayAfter to avoid duplication
+ */
 public class PolishHolidaysTest {
 
 	private final Holidays holidays = new PolishHolidays();
