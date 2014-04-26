@@ -37,4 +37,8 @@ public interface Agent<T> {
 
 	CompletableFuture<T> completeIf(Predicate<T> predicate);
 
+	static <T> Agent<T> create(T initial) {
+		return new AsyncAgent<>(initial);
+	}
+
 }

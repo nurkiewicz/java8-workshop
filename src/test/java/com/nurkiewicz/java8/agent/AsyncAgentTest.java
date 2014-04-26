@@ -17,7 +17,7 @@ public class AsyncAgentTest {
 	@Test
 	public void newAgentShouldHaveInitialValue() {
 		//given
-		final Agent<Integer> agent = create(42);
+		final Agent<Integer> agent = Agent.create(42);
 
 		//when
 		final int actual = agent.get();
@@ -29,7 +29,7 @@ public class AsyncAgentTest {
 	@Test
 	public void shouldApplyTwoChanges() {
 		//given
-		final Agent<BigInteger> agent = create(BigInteger.ONE);
+		final Agent<BigInteger> agent = Agent.create(BigInteger.ONE);
 
 		//when
 		agent.send(x -> x.add(BigInteger.ONE));
@@ -42,7 +42,7 @@ public class AsyncAgentTest {
 	@Test
 	public void shouldApplyChangesFromOneThreadInOrder() {
 		//given
-		final Agent<String> agent = create("");
+		final Agent<String> agent = Agent.create("");
 
 		//when
 		agent.send(s -> s + "A");
@@ -60,7 +60,7 @@ public class AsyncAgentTest {
 	public void shouldRunInDifferentThread() {
 		//given
 		final long mainThreadId = Thread.currentThread().getId();
-		final Agent<Long> agent = create(mainThreadId);
+		final Agent<Long> agent = Agent.create(mainThreadId);
 
 		//when
 		agent.send(x -> Thread.currentThread().getId());
@@ -76,7 +76,7 @@ public class AsyncAgentTest {
 		final List<Agent<String>> agents = IntStream
 				.range(0, totalAgents)
 				.boxed()
-				.map(i -> create(""))
+				.map(i -> Agent.create(""))
 				.collect(toList());
 
 		//when
@@ -90,10 +90,6 @@ public class AsyncAgentTest {
 		agents.forEach(a ->
 				await().untilCall(to(a).get(), is("abc"))
 		);
-	}
-
-	private <T> AsyncAgent<T> create(T initial) {
-		return new AsyncAgent<>(initial);
 	}
 
 }
