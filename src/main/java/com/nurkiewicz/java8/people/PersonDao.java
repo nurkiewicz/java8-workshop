@@ -6,14 +6,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
-import java.util.Collections;
 import java.util.List;
 
 public class PersonDao {
 
 	public List<Person> loadPeopleDatabase() {
 		try (BufferedReader bufferedReader = open("/people.csv")) {
-			return Collections.emptyList();
+			throw new UnsupportedOperationException("loadPeopleDatabase()");
 			// return bufferedReader.lines().
 		} catch (IOException e) {
 			throw new RuntimeException(e);
@@ -27,7 +26,7 @@ public class PersonDao {
 						StandardCharsets.UTF_8));
 	}
 
-	private Person parseLine(String line) {
+	private Person parsePerson(String line) {
 		final String[] columns = line.split(",");
 		return new Person(
 				columns[0],

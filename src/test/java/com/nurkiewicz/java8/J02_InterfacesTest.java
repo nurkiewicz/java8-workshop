@@ -19,7 +19,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
 import static org.junit.runners.Parameterized.Parameters;
 
 /**
- * - Improve encrypter to use default methods
+ * - Improve encrypter to use default methods to avoid code duplication.
  */
 @RunWith(Parameterized.class)
 public class J02_InterfacesTest {

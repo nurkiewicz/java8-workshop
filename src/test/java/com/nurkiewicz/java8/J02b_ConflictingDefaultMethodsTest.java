@@ -10,7 +10,9 @@ import org.junit.Test;
 import static org.fest.assertions.api.Assertions.assertThat;
 
 /**
- * - Conflicting default methods
+ * Conflicting default methods
+ * First let {@link RuleEngine} implement all three interfaces.
+ * Then decide which of the conflicting implementations should be chosen.
  */
 @Ignore
 public class J02b_ConflictingDefaultMethodsTest {

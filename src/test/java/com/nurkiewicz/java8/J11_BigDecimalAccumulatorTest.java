@@ -8,6 +8,9 @@ import java.math.BigDecimal;
 import static com.jayway.awaitility.Awaitility.await;
 import static org.fest.assertions.api.Assertions.assertThat;
 
+/**
+ * Implement {@link BigDecimalAccumulator} so that it satisfies tests below.
+ */
 @Ignore
 public class J11_BigDecimalAccumulatorTest {
 

@@ -12,7 +12,8 @@ import static com.nurkiewicz.java8.people.Sex.MALE;
 import static org.fest.assertions.api.Assertions.assertThat;
 
 /**
- * map/filter/flatMap/ifPresent
+ * Transform old-fashioned code using nulls with Optional
+ * Hint: use map/filter/flatMap/ifPresent
  */
 @Ignore
 public class J08_OptionalTest {
@@ -56,6 +57,9 @@ public class J08_OptionalTest {
 		return Optional.ofNullable(lookupAddressOrNull(person));
 	}
 
+	/**
+	 * TODO: Copy and refactor code from {@link #lookupAddressByIdOrNull}, but avoid nulls
+	 */
 	private Optional<String> tryLookupAddressById(int id) {
 		return Optional.empty(); // tryFindPerson(id).
 	}

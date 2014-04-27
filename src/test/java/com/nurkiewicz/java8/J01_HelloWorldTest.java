@@ -9,7 +9,7 @@ import static java.util.stream.Collectors.toList;
 import static org.fest.assertions.api.Assertions.assertThat;
 
 /**
- * - Smoke test
+ * - Smoke test, make sure it compiles, runs and passes.
  */
 public class J01_HelloWorldTest {
 

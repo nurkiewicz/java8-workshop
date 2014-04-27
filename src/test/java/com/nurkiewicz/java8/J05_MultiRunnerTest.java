@@ -14,6 +14,9 @@ import static com.jayway.awaitility.Awaitility.to;
 import static org.fest.assertions.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 
+/**
+ * Implement simple utility methods for running blocks of code in multiple threads
+ */
 @Ignore
 public class J05_MultiRunnerTest {
 

@@ -1,5 +1,6 @@
 package com.nurkiewicz.java8;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.InOrder;
 
@@ -22,6 +23,7 @@ import static org.mockito.Mockito.mock;
  * - Method references (method, static method, constructor)
  * - Higher order functions - returning lambdas
  */
+@Ignore
 public class J03_FunctionTest {
 
 	@Test

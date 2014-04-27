@@ -15,7 +15,7 @@ import static java.util.stream.Collectors.toSet;
 import static org.fest.assertions.api.Assertions.assertThat;
 
 /**
- * Implement custom Colletor to ImmutableSet from Guava
+ * Implement custom Collector to ImmutableSet from Guava
  * @see ImmutableSet#builder()
  */
 @Ignore

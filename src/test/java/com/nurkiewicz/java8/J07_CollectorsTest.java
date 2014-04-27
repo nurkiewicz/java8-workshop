@@ -15,6 +15,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
 import static org.fest.assertions.data.Offset.offset;
 
 /**
+ * Explore different Collectors.* implementations
  * - Various collectors, grouping, average, toList, etc.
  */
 @Ignore
@@ -35,12 +36,12 @@ public class J07_CollectorsTest {
 	public void partitionByPeopleAboveAndBelow180CmHeight() throws IOException {
 		final List<Person> people = dao.loadPeopleDatabase();
 
-		final Map<Boolean, List<Person>> peopleByBeight = Collections.emptyMap(); // people.stream().
+		final Map<Boolean, List<Person>> peopleByHeight = Collections.emptyMap(); // people.stream().
 
-		final List<Person> tallPeople = peopleByBeight.get(true);
+		final List<Person> tallPeople = peopleByHeight.get(true);
 		assertThat(tallPeople).hasSize(33);
 
-		final List<Person> shortPeople = peopleByBeight.get(false);
+		final List<Person> shortPeople = peopleByHeight.get(false);
 		assertThat(shortPeople).hasSize(104);
 	}
 

@@ -68,6 +68,7 @@ public class J05_StreamsTest {
 	public void findTallestPerson() {
 		final Optional<Person> max = Optional.empty();
 
+		assertThat(max.isPresent()).isTrue();
 		assertThat(max.get()).isEqualTo(PEOPLE.get(2));
 	}
 
@@ -78,16 +79,22 @@ public class J05_StreamsTest {
 		assertThat(malesCount).isEqualTo(2);
 	}
 
+	/**
+	 * Hint: use limit(2)
+	 */
 	@Test
 	public void twoOldestPeople() {
-		final List<Person> oldest = emptyList();  // PEOPLE.stream()...limit(2)
+		final List<Person> oldest = emptyList();
 
 		assertThat(oldest).containsExactly(PEOPLE.get(2), PEOPLE.get(1));
 	}
 
+	/**
+	 * Hint: PEOPLE.stream()...mapToInt()...sum()
+	 */
 	@Test
 	public void totalWeight() {
-		final int totalWeight = 0; //PEOPLE.stream()...mapToInt()...sum()
+		final int totalWeight = 0;
 
 		assertThat(totalWeight).isEqualTo(333);
 	}
