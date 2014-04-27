@@ -13,7 +13,7 @@ public class MultiRunner {
 
 	public static final int THREAD_COUNT = 20;
 
-	private static final ExecutorService pool = Executors.newFixedThreadPool(THREAD_COUNT, threadFactory());
+	private static final ExecutorService POOL = Executors.newFixedThreadPool(THREAD_COUNT, threadFactory());
 
 	private static ThreadFactory threadFactory() {
 		return new ThreadFactoryBuilder()
@@ -23,17 +23,17 @@ public class MultiRunner {
 	}
 
 	public static void runMultiThreaded(Runnable block) {
-		runMultiThreaded(block, 1);
+		runMultiThreaded(1, block);
 	}
 
 	/**
 	 * Runs blocks given number of times.
 	 * Equivalent to replicating block number of times into Iterable and passing to {@link #runMultiThreaded(Iterable)}
 	 *
-	 * @param block Code to execute
 	 * @param times How many times to execute it
+	 * @param block Code to execute
 	 */
-	public static void runMultiThreaded(Runnable block, int times) {
+	public static void runMultiThreaded(int times, Runnable block) {
 		throw new UnsupportedOperationException("runMultiThreaded()");
 	}
 
