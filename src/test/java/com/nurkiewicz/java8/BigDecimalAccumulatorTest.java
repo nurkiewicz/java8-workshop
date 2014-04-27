@@ -1,5 +1,6 @@
 package com.nurkiewicz.java8;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -7,6 +8,7 @@ import java.math.BigDecimal;
 import static com.jayway.awaitility.Awaitility.await;
 import static org.fest.assertions.api.Assertions.assertThat;
 
+@Ignore
 public class BigDecimalAccumulatorTest {
 
 	@Test

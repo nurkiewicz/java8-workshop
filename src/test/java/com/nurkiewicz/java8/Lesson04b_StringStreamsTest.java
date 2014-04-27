@@ -1,5 +1,6 @@
 package com.nurkiewicz.java8;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.fest.assertions.api.Assertions.assertThat;
@@ -7,6 +8,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
 /**
  * - String.chars()
  */
+@Ignore
 public class Lesson04b_StringStreamsTest {
 
 	@Test
