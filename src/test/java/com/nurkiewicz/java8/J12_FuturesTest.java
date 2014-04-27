@@ -23,7 +23,7 @@ import static org.fest.assertions.api.Assertions.offset;
  * - allOf/anyOf
  */
 @Ignore
-public class J10_FuturesTest {
+public class J12_FuturesTest {
 
 	public static final String VIKTORIA = "Viktoria";
 	public static final String WILLIAM = "William";

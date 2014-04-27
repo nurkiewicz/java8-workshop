@@ -21,7 +21,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 
 @Ignore
-public class AbstractFuturesTest {
+public abstract class AbstractFuturesTest {
 
 	private static final Logger log = LoggerFactory.getLogger(AbstractFuturesTest.class);
 

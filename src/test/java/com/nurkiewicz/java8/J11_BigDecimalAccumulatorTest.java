@@ -9,7 +9,7 @@ import static com.jayway.awaitility.Awaitility.await;
 import static org.fest.assertions.api.Assertions.assertThat;
 
 @Ignore
-public class BigDecimalAccumulatorTest {
+public class J11_BigDecimalAccumulatorTest {
 
 	@Test
 	public void shouldFirstReturnInitialValue() {

@@ -1,5 +1,6 @@
-package com.nurkiewicz.java8.agent;
+package com.nurkiewicz.java8;
 
+import com.nurkiewicz.java8.agent.Agent;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -9,7 +10,7 @@ import java.util.concurrent.ExecutionException;
 import static org.fest.assertions.api.Assertions.assertThat;
 
 @Ignore
-public class AsyncAgentFuturesTest {
+public class J28_AsyncAgentFuturesTest {
 
 	@Test
 	public void shouldCompleteFutureWhenSendDone() throws ExecutionException, InterruptedException {

@@ -15,7 +15,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 
 @Ignore
-public class MultiRunnerTest {
+public class J05_MultiRunnerTest {
 
 	@Test
 	public void shouldExecuteTasksInMultipleThreads() throws Exception {

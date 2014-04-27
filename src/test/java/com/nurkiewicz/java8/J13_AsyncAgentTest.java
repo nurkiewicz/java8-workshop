@@ -1,5 +1,6 @@
-package com.nurkiewicz.java8.agent;
+package com.nurkiewicz.java8;
 
+import com.nurkiewicz.java8.agent.Agent;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -14,7 +15,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 
 @Ignore
-public class AsyncAgentTest {
+public class J13_AsyncAgentTest {
 
 	@Test
 	public void newAgentShouldHaveInitialValue() {
