@@ -1,6 +1,5 @@
 package com.nurkiewicz.java8;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.InOrder;
 
@@ -12,6 +11,7 @@ import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 import static org.fest.assertions.api.Assertions.assertThat;
+import static org.fest.assertions.data.Offset.offset;
 import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.mock;
 
@@ -20,8 +20,8 @@ import static org.mockito.Mockito.mock;
  * - Change Encrypter to class taking Function<Byte, Byte>
  * - Turning Function, Supplier and Producer into lambda
  * - Method references (method, static method, constructor)
+ * - Higher order functions - returning lambdas
  */
-@Ignore
 public class J03_FunctionTest {
 
 	@Test
@@ -75,5 +75,48 @@ public class J03_FunctionTest {
 		order.verify(dateMock).setTime(2000L);
 	}
 
+	@Test
+	public void shouldInvokeReturnedLambdas() throws Exception {
+		//given
+		final Function<String, Integer> strLenFun = createStringLenFunction();
+		final Function<Integer, Double> tripleFun = multiplyFun(3.0);
+		final String input = "abcd";
+
+		//when
+		final int strLen = strLenFun.apply(input);
+		final double tripled = tripleFun.apply(4);
+
+		//then
+		assertThat(strLen).isEqualTo(4);
+		assertThat(tripled).isEqualTo(4 * 3.0, offset(0.01));
+	}
+
+	@Test
+	public void shouldComposeFunctionsInVariousWays() throws Exception {
+		//given
+		final Function<String, Integer> strLenFun = createStringLenFunction();
+		final Function<Integer, Double> tripleFun = multiplyFun(3.0);
+		final Function<String, Double> andThenFun = strLenFun.andThen(tripleFun);
+		final Function<String, Double> composeFun = tripleFun.compose(strLenFun);
+		final String input = "abcd";
+
+		//when
+		final double naiveResult = tripleFun.apply(strLenFun.apply(input));
+		final double andThenResult = andThenFun.apply(input);
+		final double composeResult = composeFun.apply(input);
+
+		//then
+		assertThat(naiveResult).isEqualTo(4 * 3.0, offset(0.01));
+		assertThat(andThenResult).isEqualTo(4 * 3.0, offset(0.01));
+		assertThat(composeResult).isEqualTo(4 * 3.0, offset(0.01));
+	}
+
+	private Function<Integer, Double> multiplyFun(double times) {
+		throw new UnsupportedOperationException("multiplyFun()");
+	}
+
+	private Function<String, Integer> createStringLenFunction() {
+		throw new UnsupportedOperationException("createStringLenFunction()");
+	}
 
 }
