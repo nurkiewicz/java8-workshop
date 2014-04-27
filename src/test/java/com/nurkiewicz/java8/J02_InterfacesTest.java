@@ -1,12 +1,12 @@
 package com.nurkiewicz.java8;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
 import com.nurkiewicz.java8.interfaces.Encrypter;
 import com.nurkiewicz.java8.interfaces.ReverseEncrypter;
 import com.nurkiewicz.java8.interfaces.RotEncrypter;
 import com.nurkiewicz.java8.interfaces.XorEncrypter;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -22,7 +22,7 @@ import static org.junit.runners.Parameterized.Parameters;
  * - Improve encrypter to use default methods
  */
 @RunWith(Parameterized.class)
-public class Lesson01_InterfacesTest {
+public class J02_InterfacesTest {
 
 	@Parameters
 	public static Collection<Object[]> encrypterAndExpected() {
@@ -37,7 +37,7 @@ public class Lesson01_InterfacesTest {
 	private final Encrypter encrypter;
 	private final byte[] expected;
 
-	public Lesson01_InterfacesTest(Encrypter encrypter, byte[] expected) {
+	public J02_InterfacesTest(Encrypter encrypter, byte[] expected) {
 		this.encrypter = encrypter;
 		this.expected = expected;
 	}

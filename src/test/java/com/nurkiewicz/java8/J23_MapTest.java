@@ -1,17 +1,19 @@
-package com.nurkiewicz.rxjava;
+package com.nurkiewicz.java8;
 
-import com.nurkiewicz.rxjava.util.AbstractFuturesTest;
+import com.nurkiewicz.java8.util.AbstractFuturesTest;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.CompletableFuture;
 
-public class S03_Map extends AbstractFuturesTest {
+@Ignore
+public class J23_MapTest extends AbstractFuturesTest {
 
-	private static final Logger log = LoggerFactory.getLogger(S03_Map.class);
+	private static final Logger log = LoggerFactory.getLogger(J23_MapTest.class);
 
 	@Test
 	public void oldSchool() throws Exception {

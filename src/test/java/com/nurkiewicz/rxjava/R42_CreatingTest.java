@@ -1,5 +1,6 @@
 package com.nurkiewicz.rxjava;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,9 +9,10 @@ import rx.Subscriber;
 
 import java.util.concurrent.TimeUnit;
 
-public class S12_Creating {
+@Ignore
+public class R42_CreatingTest {
 
-	private static final Logger log = LoggerFactory.getLogger(S12_Creating.class);
+	private static final Logger log = LoggerFactory.getLogger(R42_CreatingTest.class);
 
 	/**
 	 * Observable.from(Iterable)
@@ -23,8 +25,8 @@ public class S12_Creating {
 				map(i -> i * 10).       //10, 20, 30... 50
 				filter(i -> i > 20).    //30...50
 				flatMap(i -> Observable.from(i, -i)).  //30, -30...
-				map(i -> i.toString()).
-				subscribe(s -> log.debug(s));
+				map(Object::toString).
+				subscribe(log::debug);
 	}
 
 	@Test
@@ -33,9 +35,9 @@ public class S12_Creating {
 				map(i -> i * 10).
 				filter(i -> i > 20).
 				flatMap(i -> Observable.from(i, -i)).
-				map(i -> i.toString()).
+				map(Object::toString).
 				take(10).
-				subscribe(s -> log.debug(s));
+				subscribe(log::debug);
 	}
 
 	@Test
@@ -43,8 +45,8 @@ public class S12_Creating {
 		Observable.interval(1, TimeUnit.SECONDS).
 				map(i -> i * 10).
 				flatMap(i -> Observable.from(i, -i)).
-				map(i -> i.toString()).
-				subscribe(s -> log.debug(s));
+				map(Object::toString).
+				subscribe(log::debug);
 
 		TimeUnit.MINUTES.sleep(1);
 	}

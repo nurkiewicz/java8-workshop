@@ -2,6 +2,7 @@ package com.nurkiewicz.rxjava;
 
 import com.nurkiewicz.rxjava.weather.Weather;
 import com.nurkiewicz.rxjava.weather.WeatherStation;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,9 +11,10 @@ import rx.schedulers.Timestamped;
 
 import java.util.Date;
 
-public class S17_Indexing {
+@Ignore
+public class R47_IndexingTest {
 
-	private static final Logger log = LoggerFactory.getLogger(S17_Indexing.class);
+	private static final Logger log = LoggerFactory.getLogger(R47_IndexingTest.class);
 
 	@Test
 	public void timestamped() throws Exception {
@@ -23,7 +25,7 @@ public class S17_Indexing {
 						new Date(stamped.getTimestampMillis()) + "\t" + stamped.getValue().getTemperature()).
 				take(100).
 				toBlockingObservable().
-				forEach(s -> log.debug(s));
+				forEach(log::debug);
 	}
 
 	@Test
@@ -37,14 +39,14 @@ public class S17_Indexing {
 				map(t -> new Date(t.getTimestampMillis()) + "\t" + t.getValue().getTemperature()).
 				take(5).
 				toBlockingObservable().
-				forEach(s -> log.debug(s));
+				forEach(log::debug);
 
 		cached.
 				timestamp().
 				map(t -> new Date(t.getTimestampMillis()) + "\t" + t.getValue().getTemperature()).
 				take(5).
 				toBlockingObservable().
-				forEach(s -> log.debug(s));
+				forEach(log::debug);
 	}
 
 }

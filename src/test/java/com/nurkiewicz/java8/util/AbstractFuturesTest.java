@@ -1,8 +1,14 @@
-package com.nurkiewicz.rxjava.util;
+package com.nurkiewicz.java8.util;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
+import com.nurkiewicz.rxjava.stackoverflow.ArtificialSleepWrapper;
+import com.nurkiewicz.rxjava.stackoverflow.HttpStackOverflowClient;
+import com.nurkiewicz.rxjava.stackoverflow.InjectErrorsWrapper;
+import com.nurkiewicz.rxjava.stackoverflow.LoggingWrapper;
+import com.nurkiewicz.rxjava.stackoverflow.StackOverflowClient;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.rules.TestName;
 import org.slf4j.Logger;
@@ -14,6 +20,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 
+@Ignore
 public class AbstractFuturesTest {
 
 	private static final Logger log = LoggerFactory.getLogger(AbstractFuturesTest.class);
@@ -27,10 +34,10 @@ public class AbstractFuturesTest {
 		return new ThreadFactoryBuilder().setNameFormat("WJUG-pool-%d").build();
 	}
 
-	protected final com.nurkiewicz.rxjava.stackoverflow.StackOverflowClient client = new com.nurkiewicz.rxjava.stackoverflow.LoggingWrapper(
-			new com.nurkiewicz.rxjava.stackoverflow.InjectErrorsWrapper(
-					new com.nurkiewicz.rxjava.stackoverflow.ArtificialSleepWrapper(
-							new com.nurkiewicz.rxjava.stackoverflow.HttpStackOverflowClient()
+	protected final StackOverflowClient client = new LoggingWrapper(
+			new InjectErrorsWrapper(
+					new ArtificialSleepWrapper(
+							new HttpStackOverflowClient()
 					), "php"
 			)
 	);

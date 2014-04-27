@@ -2,14 +2,16 @@ package com.nurkiewicz.rxjava;
 
 import com.nurkiewicz.rxjava.weather.Weather;
 import com.nurkiewicz.rxjava.weather.WeatherStation;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rx.Observable;
 
-public class S16_Composing {
+@Ignore
+public class R46_ComposingTest {
 
-	private static final Logger log = LoggerFactory.getLogger(S16_Composing.class);
+	private static final Logger log = LoggerFactory.getLogger(R46_ComposingTest.class);
 
 	private final Observable<Weather> warsaw = WeatherStation.find("WAW").observations();
 	private final Observable<Weather> krakow = WeatherStation.find("KRA").observations();

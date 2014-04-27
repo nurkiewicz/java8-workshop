@@ -1,15 +1,17 @@
-package com.nurkiewicz.rxjava;
+package com.nurkiewicz.java8;
 
-import com.nurkiewicz.rxjava.util.AbstractFuturesTest;
+import com.nurkiewicz.java8.util.AbstractFuturesTest;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.CompletableFuture;
 
-public class S02_Creating extends AbstractFuturesTest {
+@Ignore
+public class J22_CreatingTest extends AbstractFuturesTest {
 
-	private static final Logger log = LoggerFactory.getLogger(S02_Creating.class);
+	private static final Logger log = LoggerFactory.getLogger(J22_CreatingTest.class);
 
 	@Test
 	public void supplyAsync() throws Exception {

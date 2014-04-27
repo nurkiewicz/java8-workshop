@@ -1,7 +1,8 @@
 package com.nurkiewicz.rxjava;
 
+import com.nurkiewicz.java8.util.AbstractFuturesTest;
 import com.nurkiewicz.rxjava.stackoverflow.LoadFromStackOverflowTask;
-import com.nurkiewicz.rxjava.util.AbstractFuturesTest;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,9 +13,10 @@ import java.util.concurrent.Future;
 /**
  * Sources: <a href="https://github.com/nurkiewicz/wjug-reactive">github.com/nurkiewicz/wjug-reactive</a>
  */
-public class S01_Introduction extends AbstractFuturesTest {
+@Ignore
+public class J21_FuturesIntroductionTest extends AbstractFuturesTest {
 
-	private static final Logger log = LoggerFactory.getLogger(S01_Introduction.class);
+	private static final Logger log = LoggerFactory.getLogger(J21_FuturesIntroductionTest.class);
 
 	@Test
 	public void blockingCall() throws Exception {

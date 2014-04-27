@@ -2,6 +2,7 @@ package com.nurkiewicz.rxjava;
 
 import com.nurkiewicz.rxjava.stock.StockObservable;
 import com.nurkiewicz.rxjava.stock.Transaction;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,9 +11,10 @@ import rx.Observable;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class S14_StockExchangeDemo {
+@Ignore
+public class R44_StockExchangeDemoTest {
 
-	private static final Logger log = LoggerFactory.getLogger(S14_StockExchangeDemo.class);
+	private static final Logger log = LoggerFactory.getLogger(R44_StockExchangeDemoTest.class);
 
 	private final Observable<Transaction> twitter = StockObservable.observe("IBM");
 

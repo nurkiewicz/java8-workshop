@@ -1,6 +1,7 @@
-package com.nurkiewicz.rxjava;
+package com.nurkiewicz.java8;
 
-import com.nurkiewicz.rxjava.util.AbstractFuturesTest;
+import com.nurkiewicz.java8.util.AbstractFuturesTest;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,9 +9,10 @@ import org.slf4j.LoggerFactory;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
-public class S06_AllAny extends AbstractFuturesTest {
+@Ignore
+public class J26_AllAnyTest extends AbstractFuturesTest {
 
-	private static final Logger log = LoggerFactory.getLogger(S06_AllAny.class);
+	private static final Logger log = LoggerFactory.getLogger(J26_AllAnyTest.class);
 
 	@Test
 	public void allOf() throws Exception {

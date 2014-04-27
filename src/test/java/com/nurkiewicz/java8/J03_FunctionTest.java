@@ -5,7 +5,11 @@ import org.junit.Test;
 import org.mockito.InOrder;
 
 import java.util.Date;
-import java.util.function.*;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.LongConsumer;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 import static org.mockito.Mockito.inOrder;
@@ -18,7 +22,7 @@ import static org.mockito.Mockito.mock;
  * - Method references (method, static method, constructor)
  */
 @Ignore
-public class Lesson02_FunctionTest {
+public class J03_FunctionTest {
 
 	@Test
 	public void shouldPrependHello() {

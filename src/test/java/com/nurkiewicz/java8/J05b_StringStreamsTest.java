@@ -9,7 +9,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
  * - String.chars()
  */
 @Ignore
-public class Lesson04b_StringStreamsTest {
+public class J05b_StringStreamsTest {
 
 	@Test
 	public void removeNonDigitsFromPhoneNumber() throws Exception {

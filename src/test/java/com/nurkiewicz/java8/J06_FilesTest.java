@@ -1,9 +1,9 @@
 package com.nurkiewicz.java8;
 
-import org.junit.Ignore;
-import org.junit.Test;
 import com.nurkiewicz.java8.people.Person;
 import com.nurkiewicz.java8.people.PersonDao;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import java.io.IOException;
 import java.util.List;
@@ -16,7 +16,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
  * - Comparator improvements
  */
 @Ignore
-public class Lesson05_FilesTest {
+public class J06_FilesTest {
 
 	private final PersonDao dao = new PersonDao();
 

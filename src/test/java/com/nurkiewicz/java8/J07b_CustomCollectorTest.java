@@ -19,7 +19,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
  * @see ImmutableSet#builder()
  */
 @Ignore
-public class Lesson06_CustomCollectorTest {
+public class J07b_CustomCollectorTest {
 
 	@Test
 	public void shouldReturnEmptyImmutableSet() throws Exception {

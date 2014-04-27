@@ -1,21 +1,21 @@
 package com.nurkiewicz.java8;
 
+import com.nurkiewicz.java8.people.Person;
 import org.junit.Ignore;
 import org.junit.Test;
-import com.nurkiewicz.java8.people.Person;
 
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.Optional;
 
-import static org.fest.assertions.api.Assertions.assertThat;
 import static com.nurkiewicz.java8.people.Sex.MALE;
+import static org.fest.assertions.api.Assertions.assertThat;
 
 /**
  * map/filter/flatMap/ifPresent
  */
 @Ignore
-public class Lesson07_OptionalTest {
+public class J08_OptionalTest {
 
 	private Person findPersonOrNull(int id) {
 		if (id > 0) {

@@ -1,10 +1,10 @@
 package com.nurkiewicz.java8;
 
+import com.nurkiewicz.java8.people.Person;
+import com.nurkiewicz.java8.people.PersonService;
 import org.junit.After;
 import org.junit.Ignore;
 import org.junit.Test;
-import com.nurkiewicz.java8.people.Person;
-import com.nurkiewicz.java8.people.PersonService;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -23,7 +23,7 @@ import static org.fest.assertions.api.Assertions.offset;
  * - allOf/anyOf
  */
 @Ignore
-public class Lesson10_FuturesTest {
+public class J10_FuturesTest {
 
 	public static final String VIKTORIA = "Viktoria";
 	public static final String WILLIAM = "William";

@@ -2,6 +2,7 @@ package com.nurkiewicz.rxjava;
 
 import com.nurkiewicz.rxjava.weather.Weather;
 import com.nurkiewicz.rxjava.weather.WeatherStation;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,9 +10,10 @@ import rx.Observable;
 
 import java.util.concurrent.TimeUnit;
 
-public class S11_Introduction {
+@Ignore
+public class R41_IntroductionTest {
 
-	private static final Logger log = LoggerFactory.getLogger(S11_Introduction.class);
+	private static final Logger log = LoggerFactory.getLogger(R41_IntroductionTest.class);
 
 	final WeatherStation station = WeatherStation.find("WAW");
 	final Observable<Weather> observable = station.observations();

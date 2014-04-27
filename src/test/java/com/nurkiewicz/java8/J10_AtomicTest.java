@@ -1,12 +1,15 @@
 package com.nurkiewicz.java8;
 
+import org.junit.Ignore;
+
 /**
  * - *Adder
  * - *Accumulator
  * - Atomic* improvements
  * -
  */
-public class Lesson09_ConcurrencyTest {
+@Ignore
+public class J10_AtomicTest {
 }
 
 

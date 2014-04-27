@@ -1,9 +1,9 @@
 package com.nurkiewicz.java8;
 
-import org.junit.Ignore;
-import org.junit.Test;
 import com.nurkiewicz.java8.people.Person;
 import com.nurkiewicz.java8.people.PersonDao;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -18,7 +18,7 @@ import static org.fest.assertions.data.Offset.offset;
  * - Various collectors, grouping, average, toList, etc.
  */
 @Ignore
-public class Lesson06_CollectorsTest {
+public class J07_CollectorsTest {
 
 	private final PersonDao dao = new PersonDao();
 

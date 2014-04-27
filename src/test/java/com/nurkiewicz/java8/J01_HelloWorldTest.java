@@ -11,7 +11,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
 /**
  * - Smoke test
  */
-public class Lesson00_HelloWorldTest {
+public class J01_HelloWorldTest {
 
 	@Test
 	public void hello() {

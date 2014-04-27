@@ -1,7 +1,8 @@
 package com.nurkiewicz.java8;
 
-import org.junit.Test;
 import com.nurkiewicz.java8.people.PersonDao;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import java.io.IOException;
 
@@ -10,7 +11,8 @@ import java.io.IOException;
  * - unspecified order
  * - commonPool()
  */
-public class Lesson08_ParallelStreamsTest {
+@Ignore
+public class J09_ParallelStreamsTest {
 
 	private final PersonDao dao = new PersonDao();
 

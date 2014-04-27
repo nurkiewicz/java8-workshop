@@ -1,8 +1,9 @@
-package com.nurkiewicz.rxjava;
+package com.nurkiewicz.java8;
 
+import com.nurkiewicz.java8.util.AbstractFuturesTest;
 import com.nurkiewicz.rxjava.stackoverflow.Question;
-import com.nurkiewicz.rxjava.util.AbstractFuturesTest;
 import org.jsoup.nodes.Document;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,9 +13,10 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class S04_FlatMap extends AbstractFuturesTest {
+@Ignore
+public class J24_FlatMapTest extends AbstractFuturesTest {
 
-	private static final Logger log = LoggerFactory.getLogger(S04_FlatMap.class);
+	private static final Logger log = LoggerFactory.getLogger(J24_FlatMapTest.class);
 
 	private CompletableFuture<Document> javaQuestions() {
 		return CompletableFuture.supplyAsync(() ->

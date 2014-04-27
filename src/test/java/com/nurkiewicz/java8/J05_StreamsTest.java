@@ -1,9 +1,9 @@
 package com.nurkiewicz.java8;
 
-import org.junit.Ignore;
-import org.junit.Test;
 import com.nurkiewicz.java8.people.Person;
 import com.nurkiewicz.java8.people.Phone;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -12,11 +12,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+import static com.nurkiewicz.java8.people.Sex.FEMALE;
+import static com.nurkiewicz.java8.people.Sex.MALE;
 import static java.util.Collections.emptyList;
 import static java.util.stream.Collectors.toList;
 import static org.fest.assertions.api.Assertions.assertThat;
-import static com.nurkiewicz.java8.people.Sex.FEMALE;
-import static com.nurkiewicz.java8.people.Sex.MALE;
 
 /**
  * - What is Stream<T>
@@ -24,7 +24,7 @@ import static com.nurkiewicz.java8.people.Sex.MALE;
  * - Only toList() Collector
  */
 @Ignore
-public class Lesson04_StreamsTest {
+public class J05_StreamsTest {
 
 	public static final List<Person> PEOPLE = Arrays.asList(
 			new Person("Jane", FEMALE, 62, 169, LocalDate.of(1986, Month.DECEMBER, 21), new Phone(10, 555100200)),

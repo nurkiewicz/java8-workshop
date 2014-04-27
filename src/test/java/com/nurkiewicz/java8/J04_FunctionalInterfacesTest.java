@@ -17,7 +17,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
  * - Using lambdas instead of plain old Java classes (JButton)
  */
 @Ignore
-public class Lesson03_FunctionalInterfacesTest {
+public class J04_FunctionalInterfacesTest {
 
 	private final Random random = new Random();
 
