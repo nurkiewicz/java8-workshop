@@ -1,5 +1,6 @@
 package com.nurkiewicz.java8.agent;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.math.BigInteger;
@@ -12,6 +13,7 @@ import static java.util.stream.Collectors.toList;
 import static org.fest.assertions.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 
+@Ignore
 public class AsyncAgentTest {
 
 	@Test
@@ -88,8 +90,8 @@ public class AsyncAgentTest {
 
 		//then
 		agents.forEach(a ->
-				await().untilCall(to(a).get(), is("abc"))
-		);
+				await().until(
+						() -> a.get().equals("abc")));
 	}
 
 }
