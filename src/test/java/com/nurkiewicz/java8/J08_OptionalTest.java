@@ -49,10 +49,16 @@ public class J08_OptionalTest {
 		return null;
 	}
 
+	/**
+	 * Don't catch, call from {@link #tryLookupAddressById(int)}
+	 */
 	private Optional<Person> tryFindPerson(int id) {
 		return Optional.ofNullable(findPersonOrNull(id));
 	}
 
+	/**
+	 * Don't catch, call from {@link #tryLookupAddressById(int)}
+	 */
 	private Optional<String> tryLookupAddress(Person person) {
 		return Optional.ofNullable(lookupAddressOrNull(person));
 	}
