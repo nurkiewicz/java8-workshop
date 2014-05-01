@@ -65,7 +65,7 @@ public class J10c_AtomicTest {
 		calculator.div(3);      //2
 
 		//then
-		assertThat(tmp).isEqualTo(3.0, offset(0.1));
+		assertThat(tmp).isEqualTo(5.0, offset(0.1));
 		assertThat(calculator.doubleValue()).isEqualTo(2.0, offset(0.1));
 	}
 
