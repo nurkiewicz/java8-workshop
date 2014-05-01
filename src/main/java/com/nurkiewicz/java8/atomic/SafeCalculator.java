@@ -6,23 +6,23 @@ public class SafeCalculator extends Number {
 	 * Sets new value
 	 * @return Previous value
 	 */
-	public double set(double x) {
+	public int set(int x) {
 		throw new UnsupportedOperationException("reset()");
 	}
 
-	public double mul(double x) {
+	public int mul(int x) {
 		throw new UnsupportedOperationException("inc()");
 	}
 
-	public double div(double x) {
+	public int div(int x) {
 		throw new UnsupportedOperationException("div()");
 	}
 
-	public double add(double x) {
+	public int add(int x) {
 		throw new UnsupportedOperationException("add()");
 	}
 
-	public double sub(double x) {
+	public int sub(int x) {
 		throw new UnsupportedOperationException("sub()");
 	}
 

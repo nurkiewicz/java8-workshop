@@ -39,13 +39,17 @@ public class J10c_AtomicTest {
 		final SafeCalculator calculator = new SafeCalculator();
 
 		//when
-		calculator.add(3);      //3
-		calculator.sub(1);      //2
-		calculator.mul(4);      //8
-		calculator.div(2);      //4
+		final int i1 = calculator.add(3);      //0 -> 3
+		final int i2 = calculator.sub(1);      //3 -> 2
+		final int i3 = calculator.mul(4);      //2 -> 8
+		final int i4 = calculator.div(2);      //8 -> 4
 
 		//then
-		assertThat(calculator.doubleValue()).isEqualTo(4.0, offset(0.1));
+		assertThat(i1).isZero();
+		assertThat(i2).isEqualTo(3);
+		assertThat(i3).isEqualTo(2);
+		assertThat(i4).isEqualTo(8);
+		assertThat(calculator.intValue()).isEqualTo(4);
 	}
 
 	@Test
