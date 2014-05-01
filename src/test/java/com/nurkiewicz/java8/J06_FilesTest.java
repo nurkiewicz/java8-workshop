@@ -39,6 +39,20 @@ public class J06_FilesTest {
 		assertThat(names).startsWith("Aleksandar", "Alexander", "Alexandra", "Ali", "Alice");
 	}
 
+	/**
+	 * Hint: Comparators.comparing()
+	 */
+	@Test
+	public void shouldSortFemalesByHeightDesc() throws IOException {
+		final List<Person> people = dao.loadPeopleDatabase();
+
+		final List<String> names = people.stream()
+				.map(Person::getName)
+				.collect(toList());
+
+		assertThat(names).startsWith("Mia", "Sevinj", "Anna", "Sofia");
+	}
+
 	@Test
 	public void shouldSortByDateOfBirthWhenSameNames() throws IOException {
 		final List<Person> people = dao.loadPeopleDatabase();
