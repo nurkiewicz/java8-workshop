@@ -1,5 +1,6 @@
 package com.nurkiewicz.java8;
 
+import com.nurkiewicz.java8.atomic.BigDecimalAccumulator;
 import org.junit.Ignore;
 import org.junit.Test;
 

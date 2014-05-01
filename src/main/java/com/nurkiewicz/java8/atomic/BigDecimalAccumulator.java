@@ -1,4 +1,4 @@
-package com.nurkiewicz.java8;
+package com.nurkiewicz.java8.atomic;
 
 import java.math.BigDecimal;
 import java.util.function.BiFunction;
