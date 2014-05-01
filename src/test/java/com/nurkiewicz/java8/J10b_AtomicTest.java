@@ -1,13 +1,13 @@
 package com.nurkiewicz.java8;
 
 import com.nurkiewicz.java8.atomic.RangeCollector;
-import org.junit.Ignore;
 import org.junit.Test;
 
-import java.util.Random;
-
+import static com.jayway.awaitility.Awaitility.await;
+import static com.jayway.awaitility.Awaitility.to;
 import static org.fest.assertions.api.Assertions.assertThat;
 import static org.fest.assertions.api.Assertions.offset;
+import static org.hamcrest.Matchers.closeTo;
 
 /**
  * *Adder
@@ -15,7 +15,6 @@ import static org.fest.assertions.api.Assertions.offset;
  * Atomic* improvements
  * - Decide which atomic.* class best suits given requirements
  */
-@Ignore
 public class J10b_AtomicTest {
 
 	@Test
@@ -67,14 +66,17 @@ public class J10b_AtomicTest {
 	public void shouldRememberMinAndMaxInMultipleThreads() throws Exception {
 		//given
 		final RangeCollector range = new RangeCollector();
-		final Random random = new Random();
 
 		//when
-		MultiRunner.runMultiThreaded(1000, () -> range.save(random.nextInt() % 10));
+		MultiRunner.runMultiThreaded(1000, () -> range.save(randomDigit()));
 
 		//then
-		assertThat(range.getMin()).isEqualTo(0, offset(0.1));
-		assertThat(range.getMax()).isEqualTo(9, offset(0.1));
+		await().untilCall(to(range).getMin(), closeTo(0, 0.01));
+		await().untilCall(to(range).getMax(), closeTo(9, 0.01));
+	}
+
+	private int randomDigit() {
+		return (int) (Math.random() * 10);
 	}
 
 }

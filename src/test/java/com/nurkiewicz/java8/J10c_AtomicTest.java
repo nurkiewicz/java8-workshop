@@ -6,8 +6,11 @@ import org.junit.Test;
 
 import java.util.stream.IntStream;
 
+import static com.jayway.awaitility.Awaitility.await;
+import static com.jayway.awaitility.Awaitility.to;
 import static org.fest.assertions.api.Assertions.assertThat;
 import static org.fest.assertions.api.Assertions.offset;
+import static org.hamcrest.Matchers.closeTo;
 
 /**
  * *Adder
@@ -73,7 +76,7 @@ public class J10c_AtomicTest {
 
 		//then
 		final int expectedSum = IntStream.range(1, 5000).sum();
-		assertThat(calculator.doubleValue()).isEqualTo(expectedSum, offset(0.1));
+		await().untilCall(to(calculator).doubleValue(), closeTo(expectedSum, 0.01));
 	}
 
 }
