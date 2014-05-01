@@ -1,17 +1,17 @@
 package com.nurkiewicz.java8.atomic;
 
 import java.math.BigDecimal;
-import java.util.function.BiFunction;
+import java.util.function.BinaryOperator;
 
 public class BigDecimalAccumulator {
 
-	private final BiFunction<BigDecimal, BigDecimal, BigDecimal> accFun;
+	private final BinaryOperator<BigDecimal> accFun;
 
-	public BigDecimalAccumulator(BigDecimal initialValue, BiFunction<BigDecimal, BigDecimal, BigDecimal> accFun) {
+	public BigDecimalAccumulator(BigDecimal initialValue, BinaryOperator<BigDecimal> accFun) {
 		this(initialValue, accFun, availCpuMin4());
 	}
 
-	public BigDecimalAccumulator(BigDecimal initialValue, BiFunction<BigDecimal, BigDecimal, BigDecimal> accFun, int concurrency) {
+	public BigDecimalAccumulator(BigDecimal initialValue, BinaryOperator<BigDecimal> accFun, int concurrency) {
 		this.accFun = accFun;
 	}
 
