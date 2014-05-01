@@ -8,6 +8,9 @@ import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.util.List;
 
+/**
+ * Loads people from file. Skips header and entries without name
+ */
 public class PersonDao {
 
 	public List<Person> loadPeopleDatabase() {
