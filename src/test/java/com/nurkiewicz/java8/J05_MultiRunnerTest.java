@@ -34,7 +34,7 @@ public class J05_MultiRunnerTest {
 		);
 
 		//then
-		await().untilCall(to(threads).size(), is(MultiRunner.THREAD_COUNT));
+		await().until(() -> threads.size() == MultiRunner.THREAD_COUNT);
 		assertThat(threads).doesNotContainKey(Thread.currentThread().getId());
 	}
 
@@ -51,7 +51,7 @@ public class J05_MultiRunnerTest {
 		));
 
 		//then
-		await().untilCall(to(counter).sum(), is(1 + 2 + 3));
+		await().untilCall(to(counter).sum(), is(1L + 2L + 3L));
 	}
 
 }
