@@ -51,4 +51,29 @@ public class Person {
 	public String toString() {
 		return "Person{name='" + name + '\'' + ", sex=" + sex + ", weight=" + weight + ", height=" + height + ", dateOfBirth=" + dateOfBirth + '}';
 	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		Person person = (Person) o;
+		return height == person.height
+				&& weight == person.weight
+				&& dateOfBirth.equals(person.dateOfBirth)
+				&& name.equals(person.name)
+				&& phoneNumbers.equals(person.phoneNumbers)
+				&& sex == person.sex;
+	}
+
+	@Override
+	public int hashCode() {
+		int result = name.hashCode();
+		result = 31 * result + sex.hashCode();
+		result = 31 * result + weight;
+		result = 31 * result + height;
+		result = 31 * result + dateOfBirth.hashCode();
+		result = 31 * result + phoneNumbers.hashCode();
+		return result;
+	}
 }
