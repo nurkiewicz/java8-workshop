@@ -1,14 +1,15 @@
 package com.nurkiewicz.java8;
 
-import org.junit.Ignore;
 import org.junit.Test;
+
+import java.util.Arrays;
+import java.util.List;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 
 /**
  * Hint: String.chars()
  */
-@Ignore
 public class J05b_StringsTest {
 
 	@Test
@@ -33,6 +34,50 @@ public class J05b_StringsTest {
 
 	private boolean anyNonAlphabetic(String s) {
 		return true;
+	}
+
+	/**
+	 * Hint: String.join()
+	 */
+	@Test
+	public void shouldJoinMultipleStringsIntoString() throws Exception {
+		//given
+		final List<String> ids = Arrays.asList("1", "2", "3", "4");
+
+		//when
+		final String joined = "";
+
+		//then
+		assertThat(joined).isEqualTo("1, 2, 3, 4");
+	}
+
+	@Test
+	public void shouldJoinMultipleIntsIntoString() throws Exception {
+		//given
+		final List<Integer> ids = Arrays.asList(1, 2, 3, 4);
+
+		//when
+		final String joined = "";
+
+		//then
+		assertThat(joined).isEqualTo("1, 2, 3, 4");
+	}
+
+	/**
+	 * Hint: StringJoiner
+	 */
+	@Test
+	public void shouldJoinSeparateInts() throws Exception {
+		//given
+		String x = "X";
+		String y = "Y";
+		String z = "Z";
+
+		//when
+		String joined = "";
+
+		//then
+		assertThat(joined).isEqualTo("<X-Y-Z>");
 	}
 
 }
