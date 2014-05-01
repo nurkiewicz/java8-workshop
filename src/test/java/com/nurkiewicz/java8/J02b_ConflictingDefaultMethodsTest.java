@@ -28,7 +28,7 @@ public class J02b_ConflictingDefaultMethodsTest {
 
 	@Test
 	public void shouldReturnValueFromJob() {
-		assertThat(ruleEngine.start()).isEqualTo(2);
+		assertThat(ruleEngine.start()).isEqualTo("Job");
 	}
 
 }

@@ -6,8 +6,8 @@ public interface Job {
 	/**
 	 * Do not TOUCH!
 	 */
-	default int start() {
-		return 2;
+	default String start() {
+		return "Job";
 	}
 
 }

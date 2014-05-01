@@ -5,8 +5,8 @@ public interface Engine {
 	/**
 	 * Do not TOUCH!
 	 */
-	default int start() {
-		return 3;
+	default String start() {
+		return "Engine";
 	}
 
 }

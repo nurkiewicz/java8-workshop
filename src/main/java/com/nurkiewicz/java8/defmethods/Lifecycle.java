@@ -2,8 +2,11 @@ package com.nurkiewicz.java8.defmethods;
 
 public interface Lifecycle {
 
-	default int start() {
-		return 1;
+	/**
+	 * Do not TOUCH!
+	 */
+	default String start() {
+		return "Lifecycle";
 	}
 
 }
