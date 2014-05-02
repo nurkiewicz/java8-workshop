@@ -1,8 +1,8 @@
 package com.nurkiewicz.java8.agent;
 
 import java.util.concurrent.CompletableFuture;
-import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.UnaryOperator;
 
 public class AsyncAgent<T> implements Agent<T> {
 
@@ -18,12 +18,12 @@ public class AsyncAgent<T> implements Agent<T> {
 	}
 
 	@Override
-	public void send(Function<T, T> transformFun) {
+	public void send(UnaryOperator<T> transformFun) {
 		throw new UnsupportedOperationException("send()");
 	}
 
 	@Override
-	public CompletableFuture<T> sendAndGet(Function<T, T> transformFun) {
+	public CompletableFuture<T> sendAndGet(UnaryOperator<T> transformFun) {
 		throw new UnsupportedOperationException("sendAndGet()");
 	}
 
