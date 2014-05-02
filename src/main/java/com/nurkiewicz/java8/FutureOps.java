@@ -26,6 +26,9 @@ public class FutureOps {
 		throw new UnsupportedOperationException("timeoutAfter()");
 	}
 
+	/**
+	 * Should not block but return {@link CompletableFuture} immediately.
+	 */
 	public static <T> CompletableFuture<T> toCompletable(Future<T> future) {
 		throw new UnsupportedOperationException("toCompletable()");
 	}
