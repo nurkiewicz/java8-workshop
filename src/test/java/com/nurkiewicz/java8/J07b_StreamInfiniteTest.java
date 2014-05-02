@@ -70,7 +70,7 @@ public class J07b_StreamInfiniteTest {
 	@Test
 	public void shouldGenerateGrowingStrings() throws Exception {
 		//given
-		final Stream<String> starStream = Stream.iterate("", s -> s + "*");
+		final Stream<String> starStream = Stream.iterate("", null);
 
 		//when
 		List<String> strings = null;
@@ -97,13 +97,12 @@ public class J07b_StreamInfiniteTest {
 	public void shouldEstimatePi() throws Exception {
 		//given
 		Stream<Point> randomPoints = null;
-		Stream<Boolean> pointsInsideUnitCircle = null;  //randomPoints...
 
 		//when
-		final double pi = 0;
+		final double piDividedByFour = 0;
 
 		//then
-		assertThat(pi).isEqualTo(Math.PI, offset(0.001));
+		assertThat(piDividedByFour * 4).isEqualTo(Math.PI, offset(0.001));
 	}
 
 }
@@ -116,4 +115,13 @@ class Point {
 		this.x = x;
 		this.y = y;
 	}
+
+	public static Point random() {
+		return new Point(Math.random() * 2 - 1, Math.random() * 2 - 1);
+	}
+
+	public double distance() {
+		return Math.sqrt(x * x + y * y);
+	}
+
 }
