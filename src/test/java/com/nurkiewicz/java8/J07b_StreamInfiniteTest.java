@@ -1,5 +1,6 @@
 package com.nurkiewicz.java8;
 
+import com.nurkiewicz.java8.util.PrimeUtil;
 import org.junit.Test;
 
 import java.util.List;
@@ -24,6 +25,34 @@ public class J07b_StreamInfiniteTest {
 
 		//then
 		assertThat(sum).isEqualTo(500500);
+	}
+
+	@Test
+	public void shouldCheckForPrimes() throws Exception {
+		assertThat(PrimeUtil.isPrime(2)).isTrue();
+		assertThat(PrimeUtil.isPrime(3)).isTrue();
+		assertThat(PrimeUtil.isPrime(4)).isFalse();
+		assertThat(PrimeUtil.isPrime(5)).isTrue();
+		assertThat(PrimeUtil.isPrime(6)).isFalse();
+		assertThat(PrimeUtil.isPrime(7)).isTrue();
+		assertThat(PrimeUtil.isPrime(8)).isFalse();
+		assertThat(PrimeUtil.isPrime(9)).isFalse();
+		assertThat(PrimeUtil.isPrime(10)).isFalse();
+		assertThat(PrimeUtil.isPrime(10)).isTrue();
+	}
+
+	@Test
+	public void shouldFindNextPrime() throws Exception {
+		assertThat(PrimeUtil.nextPrimeAfter(2)).isEqualTo(3);
+		assertThat(PrimeUtil.nextPrimeAfter(3)).isEqualTo(5);
+		assertThat(PrimeUtil.nextPrimeAfter(4)).isEqualTo(5);
+		assertThat(PrimeUtil.nextPrimeAfter(5)).isEqualTo(7);
+		assertThat(PrimeUtil.nextPrimeAfter(6)).isEqualTo(7);
+		assertThat(PrimeUtil.nextPrimeAfter(7)).isEqualTo(11);
+		assertThat(PrimeUtil.nextPrimeAfter(8)).isEqualTo(11);
+		assertThat(PrimeUtil.nextPrimeAfter(9)).isEqualTo(11);
+		assertThat(PrimeUtil.nextPrimeAfter(10)).isEqualTo(11);
+		assertThat(PrimeUtil.nextPrimeAfter(10)).isEqualTo(13);
 	}
 
 	@Test
