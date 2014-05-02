@@ -60,7 +60,7 @@ public class J28_AsyncAgentFuturesTest {
 	}
 
 	@Test
-	public void shouldWaitForTwoAgents() throws ExecutionException, InterruptedException {
+	public void shouldWaitForTwoAgents() throws ExecutionException, InterruptedException, TimeoutException {
 		//given
 		final Agent<String> agentOne = Agent.create("");
 		final Agent<String> agentTwo = Agent.create("");
@@ -71,11 +71,11 @@ public class J28_AsyncAgentFuturesTest {
 
 		//then
 		CompletableFuture<String> both = null;
-		assertThat(both.get()).isEqualTo("OneTwo");
+		assertThat(both.get(1, TimeUnit.SECONDS)).isEqualTo("OneTwo");
 	}
 
 	@Test
-	public void shouldReflectAllPriorChangesWhenAsyncGet() throws ExecutionException, InterruptedException {
+	public void shouldReflectAllPriorChangesWhenAsyncGet() throws ExecutionException, InterruptedException, TimeoutException {
 		//given
 		final Agent<Integer> agent = Agent.create(1);
 
@@ -84,11 +84,11 @@ public class J28_AsyncAgentFuturesTest {
 		final CompletableFuture<Integer> future = agent.getAsync();
 
 		//then
-		assertThat(future.get()).isEqualTo(1 + 2);
+		assertThat(future.get(1, TimeUnit.SECONDS)).isEqualTo(1 + 2);
 	}
 
 	@Test
-	public void shouldNotSeeChangesMadeAfterAsyncGet() throws ExecutionException, InterruptedException {
+	public void shouldNotSeeChangesMadeAfterAsyncGet() throws ExecutionException, InterruptedException, TimeoutException {
 		//given
 		final Agent<Integer> agent = Agent.create(1);
 
@@ -98,11 +98,11 @@ public class J28_AsyncAgentFuturesTest {
 		agent.send(x -> x + 3);
 
 		//then
-		assertThat(future.get()).isEqualTo(1 + 2);
+		assertThat(future.get(1, TimeUnit.SECONDS)).isEqualTo(1 + 2);
 	}
 
 	@Test
-	public void shouldCompleteWhenConditionIsMet() throws ExecutionException, InterruptedException {
+	public void shouldCompleteWhenConditionIsMet() throws ExecutionException, InterruptedException, TimeoutException {
 		//given
 		final Agent<String> agent = Agent.create("");
 
@@ -113,11 +113,11 @@ public class J28_AsyncAgentFuturesTest {
 		agent.send(s -> s + "3");
 
 		//then
-		assertThat(future.get()).isEqualTo("12");
+		assertThat(future.get(1, TimeUnit.SECONDS)).isEqualTo("12");
 	}
 
 	@Test
-	public void shouldCompleteImmediatelyIfConditionAlreadyMet() throws ExecutionException, InterruptedException {
+	public void shouldCompleteImmediatelyIfConditionAlreadyMet() throws ExecutionException, InterruptedException, TimeoutException {
 		//given
 		final Agent<String> agent = Agent.create("");
 
@@ -126,7 +126,7 @@ public class J28_AsyncAgentFuturesTest {
 		agent.send(s -> s + "1");
 
 		//then
-		assertThat(future.get()).isEmpty();
+		assertThat(future.get(1, TimeUnit.SECONDS)).isEmpty();
 	}
 
 }
