@@ -1,5 +1,6 @@
 package com.nurkiewicz.java8;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -10,7 +11,8 @@ import static org.fest.assertions.api.Assertions.assertThat;
 /**
  * Hint: String.chars()
  */
-public class J05b_StringsTest {
+@Ignore
+public class J07_StringsTest {
 
 	@Test
 	public void arrAllCharactersDigits() throws Exception {

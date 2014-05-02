@@ -19,7 +19,7 @@ import static org.fest.assertions.data.Offset.offset;
  * - Various collectors, grouping, average, toList, etc.
  */
 @Ignore
-public class J07_CollectorsTest {
+public class J08_CollectorsTest {
 
 	private final PersonDao dao = new PersonDao();
 
