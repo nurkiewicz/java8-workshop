@@ -2,6 +2,7 @@ package com.nurkiewicz.rxjava;
 
 import com.nurkiewicz.java8.stackoverflow.LoadFromStackOverflowTask;
 import com.nurkiewicz.java8.util.AbstractFuturesTest;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 
+@Ignore
 public class J21_FuturesIntroductionTest extends AbstractFuturesTest {
 
 	private static final Logger log = LoggerFactory.getLogger(J21_FuturesIntroductionTest.class);
@@ -21,12 +23,7 @@ public class J21_FuturesIntroductionTest extends AbstractFuturesTest {
 
 	@Test
 	public void executorService() throws Exception {
-		final Callable<String> task = new Callable<String>() {
-			@Override
-			public String call() throws Exception {
-				return client.mostRecentQuestionAbout("java");
-			}
-		};
+		final Callable<String> task = () -> client.mostRecentQuestionAbout("java");
 		final Future<String> javaQuestionFuture = executorService.submit(task);
 		final String javaQuestion = javaQuestionFuture.get();
 		log.debug("Found: '{}'", javaQuestion);

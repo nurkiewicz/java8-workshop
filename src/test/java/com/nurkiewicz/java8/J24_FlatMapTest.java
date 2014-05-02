@@ -39,7 +39,7 @@ public class J24_FlatMapTest extends AbstractFuturesTest {
 	@Test
 	public void thenApplyIsWrong() throws Exception {
 		final CompletableFuture<CompletableFuture<Question>> future =
-				javaQuestions().thenApply(doc -> findMostInterestingQuestion(doc));
+				javaQuestions().thenApply(this::findMostInterestingQuestion);
 	}
 
 	@Test
@@ -64,13 +64,13 @@ public class J24_FlatMapTest extends AbstractFuturesTest {
 		final CompletableFuture<Document> java = javaQuestions();
 
 		final CompletableFuture<Question> questionFuture =
-				java.thenCompose(doc -> findMostInterestingQuestion(doc));
+				java.thenCompose(this::findMostInterestingQuestion);
 
 		final CompletableFuture<String> answerFuture =
-				questionFuture.thenCompose(question -> googleAnswer(question));
+				questionFuture.thenCompose(this::googleAnswer);
 
 		final CompletableFuture<Integer> httpStatusFuture =
-				answerFuture.thenCompose(answer -> postAnswer(answer));
+				answerFuture.thenCompose(this::postAnswer);
 
 		httpStatusFuture.thenAccept(status -> {
 			if (status == HttpStatus.OK.value()) {
@@ -93,10 +93,9 @@ public class J24_FlatMapTest extends AbstractFuturesTest {
 						pool);
 
 		future.
-				thenApply(html -> parse(html)).
-				thenCompose(doc -> keywords(doc)).
-				thenAccept(System.out::println)
-		;
+				thenApply(this::parse).
+				thenCompose(this::keywords).
+				thenAccept(System.out::println);
 
 	}
 

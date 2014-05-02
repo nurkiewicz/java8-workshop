@@ -29,8 +29,7 @@ public class J25_ZipTest extends AbstractFuturesTest {
 		final CompletableFuture<Integer> f1 = null; //...
 		final CompletableFuture<Integer> f2 = null; //...
 
-		final CompletableFuture<Double> sum = f1.
-			thenCombine(f2, (i1, i2) -> (i1 + i2 / 2.0));
+		final CompletableFuture<Double> sum = f1.thenCombine(f2, (i1, i2) -> (i1 + i2 / 2.0));
 
 		f1.acceptEither(f2, System.out::println);
 	}
@@ -41,7 +40,7 @@ public class J25_ZipTest extends AbstractFuturesTest {
 		final CompletableFuture<String> scala = questions("scala");
 
 		final CompletableFuture<String> both = java.
-				applyToEither(scala, title -> title.toUpperCase());
+				applyToEither(scala, String::toUpperCase);
 
 		both.thenAccept(title -> log.debug("First: {}", title));
 	}

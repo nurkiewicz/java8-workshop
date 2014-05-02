@@ -31,22 +31,24 @@ public class J27_PromisesTest extends AbstractFuturesTest {
 
 	private CompletableFuture<Path> newFilePromise() {
 		final CompletableFuture<Path> promise = new CompletableFuture<>();
+		waitForNewFileInSeparateThread(promise);
+		return promise;
+	}
 
+	private void waitForNewFileInSeparateThread(final CompletableFuture<Path> promise) {
 		new Thread("FileSystemWatcher") {
 			@Override
 			public void run() {
 				try {
-					promise.complete(waitForNewFile());
+					promise.complete(waitForNewFileOnDesktop());
 				} catch (Exception e) {
 					promise.completeExceptionally(e);
 				}
 			}
 		}.start();
-
-		return promise;
 	}
 
-	private Path waitForNewFile() throws IOException, InterruptedException {
+	private Path waitForNewFileOnDesktop() throws IOException, InterruptedException {
 		WatchService watchService = FileSystems.getDefault().newWatchService();
 		final WatchKey key = Paths.
 				get(System.getProperty("user.home"), "Desktop").

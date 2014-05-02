@@ -30,6 +30,10 @@ public class FallbackStubClient implements StackOverflowClient {
 					return "How to generate xml report with maven depencency?";
 				case "scala":
 					return "Update a timestamp SettingKey in an sbt 0.12 task";
+				case "groovy":
+					return "Reusing Grails variables inside Config.groovy";
+				case "clojure":
+					return "Merge two comma delimited strings in Clojure";
 				default:
 					throw e;
 			}

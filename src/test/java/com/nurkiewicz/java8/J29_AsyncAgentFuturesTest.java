@@ -12,7 +12,7 @@ import java.util.concurrent.TimeoutException;
 import static org.fest.assertions.api.Assertions.assertThat;
 
 @Ignore
-public class J28_AsyncAgentFuturesTest {
+public class J29_AsyncAgentFuturesTest {
 
 	@Test
 	public void shouldCompleteFutureWhenSendDone() throws ExecutionException, InterruptedException {
