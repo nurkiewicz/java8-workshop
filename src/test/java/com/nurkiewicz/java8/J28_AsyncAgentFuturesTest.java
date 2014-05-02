@@ -6,6 +6,8 @@ import org.junit.Test;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 
@@ -36,6 +38,25 @@ public class J28_AsyncAgentFuturesTest {
 
 		//then
 		assertThat(future.get()).isEqualTo("123");
+	}
+
+	@Test
+	public void shouldWaitUntilConditionIsMetOnTwoAgents() throws ExecutionException, InterruptedException, TimeoutException {
+		//given
+		final Agent<String> agentOne = Agent.create("Abc");
+		final Agent<String> agentTwo = Agent.create("Def");
+
+		//when
+		final CompletableFuture<String> futureOne = agentOne.completeIf(String::isEmpty);
+		final CompletableFuture<String> futureTwo = agentTwo.completeIf(String::isEmpty);
+		agentOne.send(s -> "");
+		agentTwo.send(s -> "");
+
+		//then
+		futureOne.get(1, TimeUnit.SECONDS);
+		futureTwo.get(1, TimeUnit.SECONDS);
+		assertThat(agentOne.get()).isEmpty();
+		assertThat(agentTwo.get()).isEmpty();
 	}
 
 	@Test
