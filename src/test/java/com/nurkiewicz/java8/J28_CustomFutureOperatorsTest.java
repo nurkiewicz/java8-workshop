@@ -99,10 +99,12 @@ public class J28_CustomFutureOperatorsTest {
 	@Test
 	public void shouldIgnoreFuturesRunningForTooLong() throws Exception {
 		//given
-		final CompletableFuture<Integer> later = FutureOps.delay(completedFuture(45), Duration.ofMillis(500));
-		final CompletableFuture<Integer> immediately = completedFuture(42);
+		final CompletableFuture<Integer> later = FutureOps.delay(completedFuture(42), Duration.ofMillis(500));
 		final CompletableFuture<Integer> tooLate = FutureOps.delay(completedFuture(17), Duration.ofDays(1));
+		final CompletableFuture<Integer> immediately = completedFuture(45);
 		final CompletableFuture<Integer> never = FutureOps.never();
+
+		final List<CompletableFuture<Integer>> futures = Arrays.asList(later, tooLate, immediately, never);
 
 		//when
 		CompletableFuture<List<Integer>> fastAndSuccess = null;
