@@ -14,6 +14,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.function.BiFunction;
 
 import static com.jayway.awaitility.Awaitility.await;
 import static java.util.concurrent.CompletableFuture.completedFuture;
@@ -47,7 +48,7 @@ public class J28_CustomFutureOperatorsTest {
 	}
 
 	/**
-	 * If primary future does not complete in given time, handle timeout and return special value.
+	 * If primary future does not complete in given time,  {@link CompletableFuture#handle(BiFunction)} timeout and return special value.
 	 */
 	@Test
 	public void shouldTimeoutAfterSpecifiedTime() throws Exception {
