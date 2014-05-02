@@ -1,13 +1,14 @@
 package com.nurkiewicz.java8.agent;
 
 import java.util.concurrent.CompletableFuture;
-import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.UnaryOperator;
 
 /**
- * A wrapper around <strong>immutable</strong> value that asynchronously serializes all modifications.
+ * A wrapper around any object that asynchronously serializes all modifications one after another.
  * Agent guarantees that at any given time only one transformation is happening.
  * I.e. if two threads send modification at the same time, they are applied sequentially, in another thread.
+ * Value inside agent is replaced by the result of transformation. However you might as well mutate such object and return it.
  *
  * @param <T> Type of underlying value, must be immutable.
  * @see <a href="http://clojure.org/agents">Clojure agents</a>
@@ -23,9 +24,9 @@ public interface Agent<T> {
 	 * @param transformFun Function that will be executed against current value.
 	 *                     Its outcome will replace current value.
 	 */
-	void send(Function<T, T> transformFun);
+	void send(UnaryOperator<T> transformFun);
 
-	CompletableFuture<T> sendAndGet(Function<T, T> transformFun);
+	CompletableFuture<T> sendAndGet(UnaryOperator<T> transformFun);
 
 	/**
 	 * Returns value after all already sent operations were processed.
