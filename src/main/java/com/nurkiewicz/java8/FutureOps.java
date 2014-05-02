@@ -1,7 +1,6 @@
 package com.nurkiewicz.java8;
 
 import java.time.Duration;
-import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Future;
@@ -36,7 +35,7 @@ public class FutureOps {
 	/**
 	 * Filters out futures that failed. Preserves order
 	 */
-	public static <T> CompletableFuture<List<T>> ignoreFailures(Collection<CompletableFuture<T>> futures) {
+	public static <T> CompletableFuture<List<T>> ignoreFailures(List<CompletableFuture<T>> futures) {
 		throw new UnsupportedOperationException("ignoreFailures()");
 	}
 
