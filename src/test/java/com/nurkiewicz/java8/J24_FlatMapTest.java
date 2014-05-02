@@ -1,7 +1,7 @@
 package com.nurkiewicz.java8;
 
+import com.nurkiewicz.java8.stackoverflow.Question;
 import com.nurkiewicz.java8.util.AbstractFuturesTest;
-import com.nurkiewicz.rxjava.stackoverflow.Question;
 import org.jsoup.nodes.Document;
 import org.junit.Ignore;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package com.nurkiewicz.rxjava.stackoverflow;
+package com.nurkiewicz.java8.stackoverflow;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

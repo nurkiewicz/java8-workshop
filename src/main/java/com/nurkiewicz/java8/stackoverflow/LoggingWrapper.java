@@ -1,4 +1,4 @@
-package com.nurkiewicz.rxjava.stackoverflow;
+package com.nurkiewicz.java8.stackoverflow;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
