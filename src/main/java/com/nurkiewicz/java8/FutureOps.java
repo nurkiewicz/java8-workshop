@@ -41,6 +41,9 @@ public class FutureOps {
 	}
 
 	/**
+	 * Takes a {@link CompletableFuture} and returns compatible future, but that completes with delay.
+	 * E.g. if underlying future completes after 7 seconds, and we call this method with 2 seconds duration,
+	 * resulting future will complete after 9 seconds.
 	 * @return {@link CompletableFuture} which completes after underlying future with given duration
 	 */
 	public static <T> CompletableFuture<T> delay(CompletableFuture<T> future, Duration duration) {
