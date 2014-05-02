@@ -38,7 +38,7 @@ public class J07b_StreamInfiniteTest {
 		assertThat(PrimeUtil.isPrime(8)).isFalse();
 		assertThat(PrimeUtil.isPrime(9)).isFalse();
 		assertThat(PrimeUtil.isPrime(10)).isFalse();
-		assertThat(PrimeUtil.isPrime(10)).isTrue();
+		assertThat(PrimeUtil.isPrime(11)).isTrue();
 	}
 
 	@Test
@@ -52,7 +52,7 @@ public class J07b_StreamInfiniteTest {
 		assertThat(PrimeUtil.nextPrimeAfter(8)).isEqualTo(11);
 		assertThat(PrimeUtil.nextPrimeAfter(9)).isEqualTo(11);
 		assertThat(PrimeUtil.nextPrimeAfter(10)).isEqualTo(11);
-		assertThat(PrimeUtil.nextPrimeAfter(10)).isEqualTo(13);
+		assertThat(PrimeUtil.nextPrimeAfter(11)).isEqualTo(13);
 	}
 
 	@Test
