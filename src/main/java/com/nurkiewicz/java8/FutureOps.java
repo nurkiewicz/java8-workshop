@@ -33,7 +33,7 @@ public class FutureOps {
 	}
 
 	/**
-	 * Filters out futures that failed. Preserves order
+	 * Filters out futures that failed. Preserves order of input, no matter what was the completion order
 	 */
 	public static <T> CompletableFuture<List<T>> ignoreFailures(List<CompletableFuture<T>> futures) {
 		throw new UnsupportedOperationException("ignoreFailures()");
