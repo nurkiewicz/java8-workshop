@@ -6,7 +6,12 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 import static org.fest.assertions.api.Assertions.assertThat;
@@ -16,7 +21,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
  * - Comparator improvements
  */
 @Ignore
-public class J06_FilesTest {
+public class J07_FilesTest {
 
 	private final PersonDao dao = new PersonDao();
 
@@ -62,6 +67,28 @@ public class J06_FilesTest {
 				collect(toList());
 
 		assertThat(names).startsWith("Aleksandar-1966", "Alexander-1986", "Alexander-1987", "Alexandra-1988", "Ali-1974");
+	}
+
+	/**
+	 * @see Files#list(Path)
+	 * @throws Exception
+	 */
+	@Test
+	public void shouldGenerateStreamOfAllFilesIncludingSubdirectoriesRecursively() throws Exception {
+		//given
+		final String fileToSearch = J07_FilesTest.class.getSimpleName() + ".java";
+
+		//when
+		final Optional<Path> found = filesInDir(Paths.get("."))
+				.filter(path -> path.endsWith(fileToSearch))
+				.findAny();
+
+		//then
+		assertThat(found.isPresent()).isTrue();
+	}
+
+	private static Stream<Path> filesInDir(Path dir) {
+		throw new UnsupportedOperationException("filesInDir()");
 	}
 
 }
