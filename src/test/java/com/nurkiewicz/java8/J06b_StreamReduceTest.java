@@ -1,5 +1,6 @@
 package com.nurkiewicz.java8;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -7,6 +8,7 @@ import java.util.List;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 
+@Ignore
 public class J06b_StreamReduceTest {
 
 	@Test

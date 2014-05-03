@@ -1,6 +1,7 @@
 package com.nurkiewicz.java8;
 
 import com.nurkiewicz.java8.atomic.EventCounter;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static com.jayway.awaitility.Awaitility.await;
@@ -14,6 +15,7 @@ import static org.hamcrest.CoreMatchers.is;
  * Atomic* improvements
  * - Decide which atomic.* class best suits given requirements
  */
+@Ignore
 public class J10_AtomicTest {
 
 	@Test

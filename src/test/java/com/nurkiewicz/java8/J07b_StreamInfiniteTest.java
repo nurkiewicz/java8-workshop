@@ -1,6 +1,7 @@
 package com.nurkiewicz.java8;
 
 import com.nurkiewicz.java8.util.PrimeUtil;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.List;
@@ -13,6 +14,7 @@ import static org.fest.assertions.api.Assertions.offset;
 /**
  * @see PrimeUtil
  */
+@Ignore
 public class J07b_StreamInfiniteTest {
 
 	@Test
