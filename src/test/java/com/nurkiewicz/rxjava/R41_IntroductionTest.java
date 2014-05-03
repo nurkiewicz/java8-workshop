@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rx.Observable;
+import rx.Subscription;
 
 import java.util.concurrent.TimeUnit;
 
@@ -23,11 +24,13 @@ public class R41_IntroductionTest {
 	 */
 	@Test
 	public void subscribingToObservable() throws InterruptedException {
-		observable.subscribe((Weather w) ->
-				log.debug("Weather changed: {}", w.getTemperature())
-		);
+		final Subscription subscription =
+				observable.subscribe((Weather w) ->
+								log.debug("Weather changed: {}", w.getTemperature())
+				);
 
-		TimeUnit.SECONDS.sleep(100);
+		TimeUnit.SECONDS.sleep(10);
+		subscription.unsubscribe();
 	}
 
 	/**
@@ -37,7 +40,7 @@ public class R41_IntroductionTest {
 	@Test
 	public void mapAndFilter() {
 		final Observable<Float> temperatures = observable.
-				map(weather -> weather.getTemperature());
+				map(Weather::getTemperature);
 
 		final Observable<Float> highTemp = temperatures.filter(t -> t > 30.0);
 		final Observable<Float> lowTemp = temperatures.filter(t -> t < 15.0);

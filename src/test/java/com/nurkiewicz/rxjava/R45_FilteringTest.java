@@ -1,7 +1,5 @@
 package com.nurkiewicz.rxjava;
 
-import com.nurkiewicz.rxjava.stock.StockObservable;
-import com.nurkiewicz.rxjava.stock.Transaction;
 import com.nurkiewicz.rxjava.util.HeartBeat;
 import com.nurkiewicz.rxjava.weather.Weather;
 import com.nurkiewicz.rxjava.weather.WeatherStation;
@@ -23,11 +21,11 @@ public class R45_FilteringTest {
 	 */
 	@Test
 	public void sample() throws Exception {
-		final Observable<Transaction> observable = StockObservable.observe("IBM");
+		final Observable<Weather> observable = WeatherStation.find("WAW").observations();
 
 		observable.
 				sample(1, TimeUnit.SECONDS).
-				map(Transaction::getPrice).
+				map(Weather::getTemperature).
 				take(10).
 				toBlockingObservable().
 				forEach(p -> log.debug("" + p));
