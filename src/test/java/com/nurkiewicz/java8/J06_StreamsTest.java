@@ -9,8 +9,10 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Consumer;
 
 import static com.nurkiewicz.java8.people.Sex.FEMALE;
 import static com.nurkiewicz.java8.people.Sex.MALE;
@@ -117,5 +119,21 @@ public class J06_StreamsTest {
 
 		assertThat(names).containsExactly("Jane", "Eve");
 	}
+
+	/**
+	 * @see Iterator#forEachRemaining(Consumer)
+	 */
+	@Test
+	public void shouldRunOverIterator() throws Exception {
+		//given
+		final Iterator<Integer> iter = Arrays.asList(1, 2, 3).iterator();
+
+		//when
+		final String s = "";    //Use iter
+
+		//then
+		assertThat(s).isEqualToIgnoringCase("123");
+	}
+
 
 }
