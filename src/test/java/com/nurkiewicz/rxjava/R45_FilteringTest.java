@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rx.Observable;
+import rx.schedulers.TimeInterval;
 
 import java.util.concurrent.TimeUnit;
 
@@ -57,6 +58,22 @@ public class R45_FilteringTest {
 				timeout(1, TimeUnit.SECONDS).
 				toBlockingObservable().
 				forEach(h -> log.debug("Heart beat: {}", h));
+	}
+
+	@Test
+	public void timeInterval() throws Exception {
+		//given
+		final Observable<HeartBeat> observable = HeartBeat.monitorServer("foo")
+				.timeout(1, TimeUnit.SECONDS);
+
+		//when
+		final Observable<TimeInterval<HeartBeat>> intervals = observable.timeInterval();
+
+		//then
+		intervals.toBlockingObservable()
+				.forEach((TimeInterval<HeartBeat> i) -> {
+					log.debug("Since last {}ms", i.getIntervalInMilliseconds());
+				});
 	}
 
 }
