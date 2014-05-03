@@ -127,12 +127,13 @@ public class J06_StreamsTest {
 	public void shouldRunOverIterator() throws Exception {
 		//given
 		final Iterator<Integer> iter = Arrays.asList(1, 2, 3).iterator();
+		final StringBuilder sb = new StringBuilder();
 
 		//when
-		final String s = "";    //Use iter
+		//user iter... here
 
 		//then
-		assertThat(s).isEqualToIgnoringCase("123");
+		assertThat(sb.toString()).isEqualToIgnoringCase("123");
 	}
 
 
