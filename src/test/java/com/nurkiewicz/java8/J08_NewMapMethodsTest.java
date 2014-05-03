@@ -22,7 +22,7 @@ public class J08_NewMapMethodsTest {
 
 		//then
 		assertThat(wordCount)
-				.hasSize(100)
+				.hasSize(142)
 				.contains(
 						entry("eget", 12),
 						entry("sit", 9),
