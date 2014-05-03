@@ -3,7 +3,6 @@ package com.nurkiewicz.java8;
 import com.nurkiewicz.java8.util.LoremIpsum;
 import org.junit.Test;
 
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -22,7 +21,7 @@ public class J08_NewMapMethodsTest {
 
 		//then
 		assertThat(wordCount)
-				.hasSize(142)
+				.hasSize(140)
 				.contains(
 						entry("eget", 12),
 						entry("sit", 9),
@@ -52,10 +51,10 @@ public class J08_NewMapMethodsTest {
 		Map<String, Integer> wordCount = LoremIpsum.wordCount(loremIpsum);
 
 		//when
-		final List<String> fiveMostCommon = null;   //wordCount...
+		final Set<String> fiveMostCommon = null;   //wordCount...
 
 		//then
-		assertThat(fiveMostCommon).containsExactly("eget", "sit", "amet", "et", "sed");
+		assertThat(fiveMostCommon).containsOnly("eget", "sit", "amet", "et", "sed");
 	}
 
 	@Test
@@ -67,7 +66,9 @@ public class J08_NewMapMethodsTest {
 		final Set<String> uniqueWords = null;       //wordCount...
 
 		//then
-		assertThat(uniqueWords).containsOnly("abc");
+		assertThat(uniqueWords)
+				.hasSize(37)
+				.contains("tempor", "laoreet", "netus");
 	}
 
 }
