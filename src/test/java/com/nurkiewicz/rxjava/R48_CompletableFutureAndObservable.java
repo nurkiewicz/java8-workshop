@@ -7,6 +7,7 @@ import rx.Observable;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import static com.jayway.awaitility.Awaitility.await;
@@ -41,8 +42,8 @@ public class R48_CompletableFutureAndObservable {
 
 		//then
 		AtomicBoolean flag = new AtomicBoolean();
-		observable.doOnError(e -> flag.set(true));
-		await().untilAtomic(flag, is(true));
+		observable.subscribe(s -> {}, th -> flag.set(true));
+		await().atMost(1, SECONDS).untilAtomic(flag, is(true));
 	}
 
 	@Test
@@ -80,8 +81,8 @@ public class R48_CompletableFutureAndObservable {
 		//then
 		try {
 			future.get(1, SECONDS);
-			failBecauseExceptionWasNotThrown(UnsupportedOperationException.class);
-		} catch (InterruptedException e) {
+			failBecauseExceptionWasNotThrown(ExecutionException.class);
+		} catch (ExecutionException e) {
 			assertThat(e.getCause()).hasMessageContaining("panic");
 		}
 	}
