@@ -1,5 +1,6 @@
 package com.nurkiewicz.rxjava;
 
+import com.google.common.collect.Lists;
 import com.nurkiewicz.rxjava.weather.Weather;
 import com.nurkiewicz.rxjava.weather.WeatherStation;
 import org.junit.Ignore;
@@ -7,6 +8,10 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rx.Observable;
+
+import java.util.List;
+
+import static org.fest.assertions.api.Assertions.assertThat;
 
 @Ignore
 public class R46_ComposingTest {
@@ -41,6 +46,21 @@ public class R46_ComposingTest {
 				krakow.map(Weather::getTemperature),
 				(w, k) -> (w + k) / 2
 		);
+	}
+
+	@Test
+	public void shouldConcatTwoStreams() throws Exception {
+		//given
+		final Observable<String> first = Observable.from("A", "B", "C");
+		Observable<String> second = Observable.range(0, 3).map(Object::toString);
+
+		//when
+		final Observable<String> joined = Observable.concat(first, second);
+
+		//then
+		List<String> joinedList = Lists.newArrayList(
+				joined.toBlockingObservable().toIterable());
+		assertThat(joinedList).containsExactly("A", "B", "C", "0", "1", "2");
 	}
 
 }
