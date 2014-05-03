@@ -1,6 +1,7 @@
 package com.nurkiewicz.rxjava;
 
 import com.google.common.collect.Lists;
+import org.junit.Ignore;
 import org.junit.Test;
 import rx.Observable;
 import rx.Subscriber;
@@ -10,6 +11,7 @@ import java.util.function.Predicate;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 
+@Ignore
 public class R50_OperatorsTest {
 
 	@Test

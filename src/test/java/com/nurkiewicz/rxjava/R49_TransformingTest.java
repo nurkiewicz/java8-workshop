@@ -1,5 +1,6 @@
 package com.nurkiewicz.rxjava;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import rx.Observable;
 
@@ -8,6 +9,7 @@ import java.util.List;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 
+@Ignore
 public class R49_TransformingTest {
 
 	@Test
@@ -16,7 +18,7 @@ public class R49_TransformingTest {
 		final Observable<Integer> observable = Observable.range(1, 10);
 
 		//when
-		final Observable<List<Integer>> grouped = observable.buffer(3, 3);
+		final Observable<List<Integer>> grouped = null;     //observable...
 
 		//then
 		final Iterable<List<Integer>> groups = grouped.toBlockingObservable().toIterable();
@@ -34,7 +36,7 @@ public class R49_TransformingTest {
 		final Observable<Integer> observable = Observable.range(1, 5);
 
 		//when
-		final Observable<List<Integer>> grouped = observable.buffer(3, 1);
+		final Observable<List<Integer>> grouped = null;     //observable...
 
 		//then
 		final Iterable<List<Integer>> groups = grouped.toBlockingObservable().toIterable();
@@ -55,7 +57,7 @@ public class R49_TransformingTest {
 		final Observable<Integer> observable = Observable.range(1, 4);
 
 		//when
-		final Observable<Integer> accumulated = observable.scan((x, y) -> x + y);
+		final Observable<Integer> accumulated = null;     //observable...
 
 		//then
 		final Iterable<Integer> result = accumulated.toBlockingObservable().toIterable();
