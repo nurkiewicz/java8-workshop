@@ -22,14 +22,14 @@ public class R46_ComposingTest {
 				map(w -> w.getStationId() + ":\t" + w.getTemperature()).
 				take(100).
 				toBlockingObservable().
-				forEach(s -> log.debug(s));
+				forEach(log::debug);
 	}
 
 	@Test
 	public void zip() throws Exception {
 		final Observable<Float> averageTemp = Observable.zip(
-				warsaw.map(w -> w.getTemperature()),
-				krakow.map(w -> w.getTemperature()),
+				warsaw.map(Weather::getTemperature),
+				krakow.map(Weather::getTemperature),
 				(w, k) -> (w + k) / 2
 		);
 	}
@@ -37,8 +37,8 @@ public class R46_ComposingTest {
 	@Test
 	public void combineLatest() throws Exception {
 		final Observable<Float> averageTemp = Observable.combineLatest(
-				warsaw.map(w -> w.getTemperature()),
-				krakow.map(w -> w.getTemperature()),
+				warsaw.map(Weather::getTemperature),
+				krakow.map(Weather::getTemperature),
 				(w, k) -> (w + k) / 2
 		);
 	}

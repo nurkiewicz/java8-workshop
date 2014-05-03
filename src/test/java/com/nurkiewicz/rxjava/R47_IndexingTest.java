@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import rx.Observable;
 import rx.schedulers.Timestamped;
 
-import java.util.Date;
+import java.time.Instant;
 
 @Ignore
 public class R47_IndexingTest {
@@ -22,7 +22,7 @@ public class R47_IndexingTest {
 				timestamp();
 		waw.
 				map((Timestamped<Weather> stamped) ->
-						new Date(stamped.getTimestampMillis()) + "\t" + stamped.getValue().getTemperature()).
+						Instant.ofEpochMilli(stamped.getTimestampMillis()) + "\t" + stamped.getValue().getTemperature()).
 				take(100).
 				toBlockingObservable().
 				forEach(log::debug);
@@ -36,14 +36,14 @@ public class R47_IndexingTest {
 
 		cached.
 				timestamp().
-				map(t -> new Date(t.getTimestampMillis()) + "\t" + t.getValue().getTemperature()).
+				map(t -> Instant.ofEpochMilli(t.getTimestampMillis()) + "\t" + t.getValue().getTemperature()).
 				take(5).
 				toBlockingObservable().
 				forEach(log::debug);
 
 		cached.
 				timestamp().
-				map(t -> new Date(t.getTimestampMillis()) + "\t" + t.getValue().getTemperature()).
+				map(t -> Instant.ofEpochMilli(t.getTimestampMillis()) + "\t" + t.getValue().getTemperature()).
 				take(5).
 				toBlockingObservable().
 				forEach(log::debug);
