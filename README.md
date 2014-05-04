@@ -21,6 +21,6 @@ If you see this error message during maven build:
 	[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project lazyseq:
 	Fatal error compiling: invalid target release: 1.8 -> [Help 1]
 
-it means you are not compiling using Java 8. [Download JDK 8 with lambda support](https://jdk8.java.net/lambda/) and let maven use it:
+it means you are not compiling using Java 8. Download JDK 8 and let maven use it:
 
 	$ export JAVA_HOME=/path/to/jdk8
