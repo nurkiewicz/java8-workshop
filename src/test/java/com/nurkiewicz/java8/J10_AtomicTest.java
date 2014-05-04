@@ -14,6 +14,7 @@ import static org.hamcrest.CoreMatchers.is;
  * *Accumulator
  * Atomic* improvements
  * - Decide which atomic.* class best suits given requirements
+ * @see <A href="http://psy-lob-saw.blogspot.no/2013/06/java-concurrent-counters-by-numbers.html">Java Concurrent Counters By Numbers</A>
  */
 @Ignore
 public class J10_AtomicTest {
