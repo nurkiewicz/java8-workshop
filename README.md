@@ -1,10 +1,10 @@
-# Warsjawa 2013 - Java 8 workshop
+# Java 8 and RxJava workshop driven by tests
 
 ## Smoke testing
 
 ### Maven
 
-Run `mvn test` to make sure you have JDK 8 and all dependencies in place.
+Run `mvn clean test` to make sure you have JDK 8 and all dependencies in place.
 
 ### IDE
 
