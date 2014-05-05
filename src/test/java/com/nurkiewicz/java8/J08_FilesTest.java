@@ -21,7 +21,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
  * - Comparator improvements
  */
 @Ignore
-public class J07_FilesTest {
+public class J08_FilesTest {
 
 	private final PersonDao dao = new PersonDao();
 
@@ -76,7 +76,7 @@ public class J07_FilesTest {
 	@Test
 	public void shouldGenerateStreamOfAllFilesIncludingSubdirectoriesRecursively() throws Exception {
 		//given
-		final String fileToSearch = J07_FilesTest.class.getSimpleName() + ".java";
+		final String fileToSearch = J08_FilesTest.class.getSimpleName() + ".java";
 
 		//when
 		final Optional<Path> found = filesInDir(Paths.get("."))

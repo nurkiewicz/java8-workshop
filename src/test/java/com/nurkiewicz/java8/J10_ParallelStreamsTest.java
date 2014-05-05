@@ -17,7 +17,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
  * - commonPool()
  */
 @Ignore
-public class J09_ParallelStreamsTest {
+public class J10_ParallelStreamsTest {
 
 	private final PersonDao dao = new PersonDao();
 

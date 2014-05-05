@@ -9,7 +9,7 @@ import java.util.List;
 import static org.fest.assertions.api.Assertions.assertThat;
 
 @Ignore
-public class J06b_StreamReduceTest {
+public class J07b_StreamReduceTest {
 
 	@Test
 	public void shouldAddNumbersUsingReduce() throws Exception {

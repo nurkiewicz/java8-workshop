@@ -17,7 +17,7 @@ import static org.hamcrest.Matchers.closeTo;
  * - Decide which atomic.* class best suits given requirements
  */
 @Ignore
-public class J10b_AtomicTest {
+public class J11b_AtomicTest {
 
 	@Test
 	public void shouldHaveExtremeRangesInTheBeginning() throws Exception {

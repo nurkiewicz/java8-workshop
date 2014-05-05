@@ -16,7 +16,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
  * Hint: use map/filter/flatMap/ifPresent
  */
 @Ignore
-public class J05_OptionalTest {
+public class J06_OptionalTest {
 
 	private Person findPersonOrNull(int id) {
 		if (id > 0) {

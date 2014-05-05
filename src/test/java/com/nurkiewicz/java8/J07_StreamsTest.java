@@ -26,7 +26,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
  * - Only toList() Collector
  */
 @Ignore
-public class J06_StreamsTest {
+public class J07_StreamsTest {
 
 	public static final List<Person> PEOPLE = Arrays.asList(
 			new Person("Jane", FEMALE, 62, 169, LocalDate.of(1986, Month.DECEMBER, 21), new Phone(10, 555100200)),

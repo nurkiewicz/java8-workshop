@@ -19,7 +19,7 @@ import static org.hamcrest.Matchers.closeTo;
  * - Decide which atomic.* class best suits given requirements
  */
 @Ignore
-public class J10c_AtomicTest {
+public class J11c_AtomicTest {
 
 	@Test
 	public void shouldReturnZeroWhenNoPreviousInteractionsWithTheCalulator() throws Exception {

@@ -12,7 +12,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
  * Hint: String.chars()
  */
 @Ignore
-public class J07_StringsTest {
+public class J09_StringsTest {
 
 	@Test
 	public void arrAllCharactersDigits() throws Exception {

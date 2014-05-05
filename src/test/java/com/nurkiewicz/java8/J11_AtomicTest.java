@@ -17,7 +17,7 @@ import static org.hamcrest.CoreMatchers.is;
  * @see <A href="http://psy-lob-saw.blogspot.no/2013/06/java-concurrent-counters-by-numbers.html">Java Concurrent Counters By Numbers</A>
  */
 @Ignore
-public class J10_AtomicTest {
+public class J11_AtomicTest {
 
 	@Test
 	public void shouldCountMultipleEvents() throws Exception {

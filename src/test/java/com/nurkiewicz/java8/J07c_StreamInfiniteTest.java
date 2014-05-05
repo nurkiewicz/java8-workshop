@@ -15,7 +15,7 @@ import static org.fest.assertions.api.Assertions.offset;
  * @see PrimeUtil
  */
 @Ignore
-public class J07b_StreamInfiniteTest {
+public class J07c_StreamInfiniteTest {
 
 	@Test
 	public void shouldGenerateNaturalNumbersAndSumFirstThousand() throws Exception {

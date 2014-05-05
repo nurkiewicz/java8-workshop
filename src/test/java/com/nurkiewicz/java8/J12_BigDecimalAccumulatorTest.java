@@ -13,7 +13,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
  * Implement {@link BigDecimalAccumulator} so that it satisfies tests below.
  */
 @Ignore
-public class J11_BigDecimalAccumulatorTest {
+public class J12_BigDecimalAccumulatorTest {
 
 	@Test
 	public void shouldFirstReturnInitialValue() {
