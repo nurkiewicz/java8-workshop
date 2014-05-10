@@ -8,6 +8,8 @@ import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.util.List;
 
+import static java.util.stream.Collectors.toList;
+
 /**
  * Loads people from file. Skips header and entries without name
  */
@@ -15,8 +17,12 @@ public class PersonDao {
 
 	public List<Person> loadPeopleDatabase() {
 		try (BufferedReader bufferedReader = open("/people.csv")) {
-			throw new UnsupportedOperationException("loadPeopleDatabase()");
-			// return bufferedReader.lines().
+			return bufferedReader
+					.lines()
+					.skip(1)
+					.map(this::parsePerson)
+					.filter(p -> !p.getName().isEmpty())
+					.collect(toList());
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}

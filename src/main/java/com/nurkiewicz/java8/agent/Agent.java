@@ -1,6 +1,7 @@
 package com.nurkiewicz.java8.agent;
 
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
 import java.util.function.Predicate;
 import java.util.function.UnaryOperator;
 
@@ -38,8 +39,8 @@ public interface Agent<T> {
 
 	CompletableFuture<T> completeIf(Predicate<T> predicate);
 
-	static <T> Agent<T> create(T initial) {
-		return new AsyncAgent<>(initial);
+	static <T> Agent<T> create(T initial, ExecutorService pool) {
+		return new AsyncAgent<>(initial, pool);
 	}
 
 }

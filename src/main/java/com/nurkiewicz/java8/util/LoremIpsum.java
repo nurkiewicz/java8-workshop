@@ -4,6 +4,7 @@ import com.google.common.base.Splitter;
 import org.apache.commons.io.IOUtils;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.BiFunction;
@@ -24,7 +25,12 @@ public class LoremIpsum {
 	}
 
 	public static Map<String, Integer> wordCount(String text) {
-		throw new UnsupportedOperationException("wordCount()");
+		final List<String> words = splitWords(text);
+		Map<String, Integer> wordCount = new HashMap<>();
+		for (String word : words) {
+			wordCount.merge(word.toLowerCase(), 1, (x, one) -> x + one);
+		}
+		return wordCount;
 	}
 
 	private static List<String> splitWords(String text) {

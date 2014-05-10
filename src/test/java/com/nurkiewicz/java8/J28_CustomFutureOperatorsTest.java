@@ -1,7 +1,6 @@
 package com.nurkiewicz.java8;
 
 import org.junit.After;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.time.Duration;
@@ -15,16 +14,17 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.BiFunction;
+import java.util.function.Function;
 
 import static com.jayway.awaitility.Awaitility.await;
 import static java.util.concurrent.CompletableFuture.completedFuture;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static java.util.concurrent.TimeUnit.SECONDS;
+import static java.util.stream.Collectors.toList;
 import static org.fest.assertions.api.Assertions.assertThat;
 import static org.fest.assertions.api.Assertions.failBecauseExceptionWasNotThrown;
 import static org.hamcrest.core.Is.is;
 
-@Ignore
 public class J28_CustomFutureOperatorsTest {
 
 	private final ExecutorService pool = Executors.newFixedThreadPool(10);
@@ -56,7 +56,10 @@ public class J28_CustomFutureOperatorsTest {
 		//given
 		CompletableFuture<String> primary = FutureOps.never();
 		CompletableFuture<String> timeout = FutureOps.timeoutAfter(Duration.ofMillis(100));
-		CompletableFuture<String> any = null; //...
+		CompletableFuture<String> any = primary
+				.applyToEither(timeout, Function.identity())
+				.handle((result, exception) ->
+						result != null ? result : "Fallback");
 
 		//when
 		final String fallback = any.get(1, SECONDS);
@@ -107,11 +110,19 @@ public class J28_CustomFutureOperatorsTest {
 
 		final List<CompletableFuture<Integer>> futures = Arrays.asList(later, tooLate, immediately, never);
 
+		final List<CompletableFuture<Integer>> withTimeouts = futures
+				.stream()
+				.map(f -> {
+					final CompletableFuture<Integer> timeout = FutureOps.timeoutAfter(Duration.ofSeconds(1));
+					return f.applyToEither(timeout, Function.identity());
+				})
+				.collect(toList());
+
 		//when
-		CompletableFuture<List<Integer>> fastAndSuccess = null;
+		CompletableFuture<List<Integer>> fastAndSuccess = FutureOps.ignoreFailures(withTimeouts);
 
 		//then
-		assertThat(fastAndSuccess.get(1, TimeUnit.SECONDS)).containsExactly(42, 45);
+		assertThat(fastAndSuccess.get(10, TimeUnit.SECONDS)).containsExactly(42, 45);
 	}
 
 }

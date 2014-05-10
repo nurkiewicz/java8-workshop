@@ -1,48 +1,52 @@
 package com.nurkiewicz.java8.atomic;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class SafeCalculator extends Number {
+
+	private final AtomicInteger value = new AtomicInteger();
 
 	/**
 	 * Sets new value
 	 * @return Previous value
 	 */
 	public int set(int x) {
-		throw new UnsupportedOperationException("reset()");
+		return value.getAndSet(x);
 	}
 
 	public int mul(int x) {
-		throw new UnsupportedOperationException("inc()");
+		return value.getAndUpdate(prev -> prev * x);
 	}
 
 	public int div(int x) {
-		throw new UnsupportedOperationException("div()");
+		return value.getAndUpdate(prev -> prev / x);
 	}
 
 	public int add(int x) {
-		throw new UnsupportedOperationException("add()");
+		return value.getAndAdd(x);
 	}
 
 	public int sub(int x) {
-		throw new UnsupportedOperationException("sub()");
+		return value.getAndAdd(-x);
 	}
 
 	@Override
 	public int intValue() {
-		throw new UnsupportedOperationException("intValue()");
+		return value.intValue();
 	}
 
 	@Override
 	public long longValue() {
-		throw new UnsupportedOperationException("longValue()");
+		return value.longValue();
 	}
 
 	@Override
 	public float floatValue() {
-		throw new UnsupportedOperationException("floatValue()");
+		return value.floatValue();
 	}
 
 	@Override
 	public double doubleValue() {
-		throw new UnsupportedOperationException("doubleValue()");
+		return value.doubleValue();
 	}
 }

@@ -1,24 +1,22 @@
 package com.nurkiewicz.java8.util;
 
-import java.util.function.LongUnaryOperator;
 import java.util.stream.LongStream;
 
 public class PrimeUtil {
 
-	/**
-	 * TODO: Try to implement this without loops and if's
-	 * @see LongStream#iterate(long, LongUnaryOperator)
-	 */
 	public static long nextPrimeAfter(long x) {
-		throw new UnsupportedOperationException("nextPrimeAfter()");
+		return LongStream
+				.iterate(x + 1, a -> a + 1)
+				.filter(PrimeUtil::isPrime)
+				.findFirst()
+				.getAsLong();
 	}
 
-	/**
-	 * TODO: Try to implement this without loops and if's
-	 * @see LongStream#range(long, long)
-	 */
 	public static boolean isPrime(long x) {
-		throw new UnsupportedOperationException("isPrime()");
+		final long upTo = Math.min(x - 1, (long) Math.ceil(Math.sqrt(x)));
+		return LongStream
+				.rangeClosed(2, upTo)
+				.allMatch(div -> x % div != 0);
 	}
 
 }

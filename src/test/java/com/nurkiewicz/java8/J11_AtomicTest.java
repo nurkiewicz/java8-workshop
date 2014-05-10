@@ -1,7 +1,6 @@
 package com.nurkiewicz.java8;
 
 import com.nurkiewicz.java8.atomic.EventCounter;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static com.jayway.awaitility.Awaitility.await;
@@ -16,7 +15,6 @@ import static org.hamcrest.CoreMatchers.is;
  * - Decide which atomic.* class best suits given requirements
  * @see <A href="http://psy-lob-saw.blogspot.no/2013/06/java-concurrent-counters-by-numbers.html">Java Concurrent Counters By Numbers</A>
  */
-@Ignore
 public class J11_AtomicTest {
 
 	@Test

@@ -2,7 +2,6 @@ package com.nurkiewicz.java8;
 
 import com.nurkiewicz.java8.people.Person;
 import com.nurkiewicz.java8.people.Phone;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.time.LocalDate;
@@ -16,7 +15,7 @@ import java.util.function.Consumer;
 
 import static com.nurkiewicz.java8.people.Sex.FEMALE;
 import static com.nurkiewicz.java8.people.Sex.MALE;
-import static java.util.Collections.emptyList;
+import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.toList;
 import static org.fest.assertions.api.Assertions.assertThat;
 
@@ -25,7 +24,6 @@ import static org.fest.assertions.api.Assertions.assertThat;
  * - More complex operations on Stream, (map, filter, forEach, sorted)
  * - Only toList() Collector
  */
-@Ignore
 public class J07_StreamsTest {
 
 	public static final List<Person> PEOPLE = Arrays.asList(
@@ -61,14 +59,18 @@ public class J07_StreamsTest {
 	 */
 	@Test
 	public void areAllPeopleSlim() {
-		final boolean allSlim = true; // PEOPLE.stream().allMatch()
+		final boolean allSlim = PEOPLE
+				.stream()
+				.allMatch(p -> p.getWeight() < 80);
 
 		assertThat(allSlim).isFalse();
 	}
 
 	@Test
 	public void findTallestPerson() {
-		final Optional<Person> max = Optional.empty();
+		final Optional<Person> max = PEOPLE
+				.stream()
+				.max(comparing(Person::getHeight));
 
 		assertThat(max.isPresent()).isTrue();
 		assertThat(max.get()).isEqualTo(PEOPLE.get(2));
@@ -76,7 +78,11 @@ public class J07_StreamsTest {
 
 	@Test
 	public void countMales() {
-		final long malesCount = 0;
+		final long malesCount = PEOPLE
+				.stream()
+				.map(Person::getSex)
+				.filter(s -> s == MALE)
+				.count();
 
 		assertThat(malesCount).isEqualTo(2);
 	}
@@ -86,7 +92,11 @@ public class J07_StreamsTest {
 	 */
 	@Test
 	public void twoOldestPeople() {
-		final List<Person> oldest = emptyList();
+		final List<Person> oldest = PEOPLE
+				.stream()
+				.sorted(comparing(Person::getDateOfBirth))
+				.limit(2)
+				.collect(toList());
 
 		assertThat(oldest).containsExactly(PEOPLE.get(2), PEOPLE.get(1));
 	}
@@ -96,14 +106,22 @@ public class J07_StreamsTest {
 	 */
 	@Test
 	public void totalWeight() {
-		final int totalWeight = 0;
+		final int totalWeight = PEOPLE
+				.stream()
+				.mapToInt(Person::getWeight)
+				.sum();
 
 		assertThat(totalWeight).isEqualTo(333);
 	}
 
 	@Test
 	public void findUniqueCountryCodes() {
-		final List<Integer> distinctCountryCodes = emptyList(); // PEOPLE.stream()...flatMap()...distinct()
+		final List<Integer> distinctCountryCodes = PEOPLE
+				.stream()
+				.flatMap(p -> p.getPhoneNumbers().stream())
+				.map(Phone::getCountryCode)
+				.distinct().
+				collect(toList());
 
 		assertThat(distinctCountryCodes).containsExactly(10, 11, 12);
 	}
@@ -115,7 +133,11 @@ public class J07_StreamsTest {
 	public void forEachYoungPerson() {
 		List<String> names = new ArrayList<>();
 
-		// PEOPLE.stream()...forEach()
+		PEOPLE
+				.stream()
+				.filter(p -> p.getDateOfBirth().isAfter(LocalDate.of(1985, Month.DECEMBER, 25)))
+				.map(Person::getName)
+				.forEach(names::add);
 
 		assertThat(names).containsExactly("Jane", "Eve");
 	}
@@ -130,7 +152,7 @@ public class J07_StreamsTest {
 		final StringBuilder sb = new StringBuilder();
 
 		//when
-		//use iter... here
+		iter.forEachRemaining(sb::append);
 
 		//then
 		assertThat(sb.toString()).isEqualToIgnoringCase("123");

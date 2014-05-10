@@ -1,7 +1,6 @@
 package com.nurkiewicz.java8;
 
 import com.nurkiewicz.java8.people.Person;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.time.LocalDate;
@@ -15,7 +14,6 @@ import static org.fest.assertions.api.Assertions.assertThat;
  * Transform old-fashioned code using nulls with Optional
  * Hint: use map/filter/flatMap/ifPresent
  */
-@Ignore
 public class J06_OptionalTest {
 
 	private Person findPersonOrNull(int id) {
@@ -67,7 +65,11 @@ public class J06_OptionalTest {
 	 * TODO: Copy and refactor code from {@link #lookupAddressByIdOrNull}, but avoid nulls
 	 */
 	private Optional<String> tryLookupAddressById(int id) {
-		return Optional.empty(); // tryFindPerson(id).
+		return tryFindPerson(id)
+				.filter(person -> person.getSex() == MALE)
+				.flatMap(this::tryLookupAddress)
+				.filter(s -> !s.isEmpty())
+				.map(String::trim);
 	}
 
 	@Test

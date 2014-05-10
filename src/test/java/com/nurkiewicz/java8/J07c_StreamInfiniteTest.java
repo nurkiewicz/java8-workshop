@@ -1,20 +1,19 @@
 package com.nurkiewicz.java8;
 
 import com.nurkiewicz.java8.util.PrimeUtil;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.List;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
+import static java.util.stream.Collectors.toList;
 import static org.fest.assertions.api.Assertions.assertThat;
 import static org.fest.assertions.api.Assertions.offset;
 
 /**
  * @see PrimeUtil
  */
-@Ignore
 public class J07c_StreamInfiniteTest {
 
 	@Test
@@ -60,7 +59,7 @@ public class J07c_StreamInfiniteTest {
 	@Test
 	public void shouldCalculateProductOfFirstFivePrimes() throws Exception {
 		//given
-		LongStream primes = LongStream.iterate(2, null);
+		LongStream primes = LongStream.iterate(2, PrimeUtil::nextPrimeAfter);
 
 		//when
 		final long product = primes.limit(5).reduce(1, (acc, x) -> acc * x);
@@ -72,10 +71,10 @@ public class J07c_StreamInfiniteTest {
 	@Test
 	public void shouldGenerateGrowingStrings() throws Exception {
 		//given
-		final Stream<String> starStream = Stream.iterate("", null);
+		final Stream<String> starStream = Stream.iterate("", s -> s + "*");
 
 		//when
-		List<String> strings = null;
+		List<String> strings = starStream.limit(7).collect(toList());
 
 		//then
 		assertThat(strings).containsExactly(
@@ -98,13 +97,18 @@ public class J07c_StreamInfiniteTest {
 	@Test
 	public void shouldEstimatePi() throws Exception {
 		//given
-		Stream<Point> randomPoints = null;
+		Stream<Point> randomPoints = Stream.generate(Point::random);
 
 		//when
-		final double piDividedByFour = 0;
+		int precision = 1_000;
+		final double piDividedByFour = randomPoints
+				.map(Point::distance)
+				.limit(precision)
+				.filter(d -> d <= 1.0)
+				.count() / (double)precision;
 
 		//then
-		assertThat(piDividedByFour * 4).isEqualTo(Math.PI, offset(0.001));
+		assertThat(piDividedByFour * 4).isEqualTo(Math.PI, offset(0.1));
 	}
 
 }
@@ -125,5 +129,4 @@ class Point {
 	public double distance() {
 		return Math.sqrt(x * x + y * y);
 	}
-
 }

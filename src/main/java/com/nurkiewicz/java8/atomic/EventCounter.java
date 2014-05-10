@@ -1,32 +1,36 @@
 package com.nurkiewicz.java8.atomic;
 
+import java.util.concurrent.atomic.LongAdder;
+
 public class EventCounter extends Number {
 
-	public long incBy(long x) {
-		throw new UnsupportedOperationException("incBy()");
+	private LongAdder accumulator = new LongAdder();
+
+	public void incBy(long x) {
+		accumulator.add(x);
 	}
 
 	public long reset() {
-		throw new UnsupportedOperationException("reset()");
+		return accumulator.sumThenReset();
 	}
 
 	@Override
 	public int intValue() {
-		throw new UnsupportedOperationException("intValue()");
+		return accumulator.intValue();
 	}
 
 	@Override
 	public long longValue() {
-		throw new UnsupportedOperationException("longValue()");
+		return accumulator.longValue();
 	}
 
 	@Override
 	public float floatValue() {
-		throw new UnsupportedOperationException("floatValue()");
+		return accumulator.floatValue();
 	}
 
 	@Override
 	public double doubleValue() {
-		throw new UnsupportedOperationException("doubleValue()");
+		return accumulator.doubleValue();
 	}
 }

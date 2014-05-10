@@ -1,14 +1,13 @@
 package com.nurkiewicz.java8;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 
-@Ignore
 public class J07b_StreamReduceTest {
 
 	@Test
@@ -47,7 +46,9 @@ public class J07b_StreamReduceTest {
 		final List<Integer> input = Arrays.asList(4, 2, 6, 3, 8, 1);
 
 		//when
-		final int max = 0;  //input.stream()...
+		final int max = input
+				.stream()
+				.reduce(Integer.MIN_VALUE, Math::max);
 
 		//then
 		assertThat(max).isEqualTo(8);
@@ -59,7 +60,19 @@ public class J07b_StreamReduceTest {
 		final List<Integer> input = Arrays.asList(2, 3, 5, 7);
 
 		//when
-		final List<Integer> doubledPrimes = null;   //input.stream()...
+		final List<Integer> doubledPrimes = input
+				.stream()
+				.reduce(
+						new ArrayList<>(),
+						(list, x) -> {
+							list.add(x * 2);
+							return list;
+						},
+						(list1, list2) -> {
+							list1.addAll(list2);
+							return list1;
+						}
+				);
 
 		//then
 		assertThat(doubledPrimes).containsExactly(2 * 2, 3 * 2, 5 * 2, 7 * 2);
@@ -71,7 +84,21 @@ public class J07b_StreamReduceTest {
 		final List<Integer> input = Arrays.asList(2, 3, 4, 5, 6);
 
 		//when
-		final List<Integer> doubledPrimes = null;   //input.stream()...
+		final List<Integer> doubledPrimes = input
+				.stream()
+				.reduce(
+						new ArrayList<>(),
+						(list, x) -> {
+							if (x % 2 == 0) {
+								list.add(x);
+							}
+							return list;
+						},
+						(list1, list2) -> {
+							list1.addAll(list2);
+							return list1;
+						}
+				);
 
 		//then
 		assertThat(doubledPrimes).containsExactly(2, 4, 6);

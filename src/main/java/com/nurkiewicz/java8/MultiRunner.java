@@ -5,6 +5,7 @@ import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
+import java.util.stream.IntStream;
 
 /**
  * Uses dirty static methods on purpose, so that it's easier to use during testing.
@@ -34,7 +35,9 @@ public class MultiRunner {
 	 * @param block Code to execute
 	 */
 	public static void runMultiThreaded(int times, Runnable block) {
-		throw new UnsupportedOperationException("runMultiThreaded()");
+		IntStream.range(0, times).forEach(i -> {
+			POOL.submit(block);
+		});
 	}
 
 	/**
@@ -43,7 +46,7 @@ public class MultiRunner {
 	 * @param blocks Blocks of code to execute in a thread pool, each one only once
 	 */
 	public static void runMultiThreaded(Iterable<Runnable> blocks) {
-		throw new UnsupportedOperationException("runMultiThreaded()");
+		blocks.forEach(POOL::submit);
 	}
 
 }

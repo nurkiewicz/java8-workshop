@@ -1,7 +1,6 @@
 package com.nurkiewicz.java8;
 
 import com.google.common.collect.ImmutableSet;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -18,7 +17,6 @@ import static org.fest.assertions.api.Assertions.assertThat;
  * Implement custom Collector to ImmutableSet from Guava
  * @see ImmutableSet#builder()
  */
-@Ignore
 public class J07d_CustomCollectorTest {
 
 	@Test
@@ -27,7 +25,7 @@ public class J07d_CustomCollectorTest {
 		final Set<Integer> items = Collections.emptySet();
 
 		//when
-		final ImmutableSet<Integer> set = null; //items.stream().collect(new ImmutableSetCollector<>());
+		final ImmutableSet<Integer> set = items.stream().collect(new ImmutableSetCollector<>());
 
 		//then
 		assertThat(set).isEmpty();
@@ -39,7 +37,7 @@ public class J07d_CustomCollectorTest {
 		final List<Integer> items = Collections.singletonList(42);
 
 		//when
-		final ImmutableSet<Integer> set = null; //items.stream().collect(new ImmutableSetCollector<>());
+		final ImmutableSet<Integer> set = items.stream().collect(new ImmutableSetCollector<>());
 
 		//then
 		assertThat(set).containsExactly(42);
@@ -51,7 +49,7 @@ public class J07d_CustomCollectorTest {
 		final List<Integer> items = Arrays.asList(3, 5, 2, 4, 7, 5, 3, 9, 2);
 
 		//when
-		final ImmutableSet<Integer> set = null; //items.stream().collect(new ImmutableSetCollector<>());
+		final ImmutableSet<Integer> set = items.stream().collect(new ImmutableSetCollector<>());
 
 		//then
 		assertThat(set).containsOnly(2, 3, 4, 5, 7, 9);
@@ -66,7 +64,7 @@ public class J07d_CustomCollectorTest {
 				.mapToObj(x -> x / 2);
 
 		//when
-		final ImmutableSet<Long> set = null; //longsWithDuplicates.collect(new ImmutableSetCollector<>());
+		final ImmutableSet<Long> set = longsWithDuplicates.collect(new ImmutableSetCollector<>());
 
 		//then
 		final Set<Long> expected = LongStream

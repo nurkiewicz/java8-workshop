@@ -1,7 +1,6 @@
 package com.nurkiewicz.java8;
 
 import com.nurkiewicz.java8.atomic.SafeCalculator;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.stream.IntStream;
@@ -18,7 +17,6 @@ import static org.hamcrest.Matchers.closeTo;
  * Atomic* improvements
  * - Decide which atomic.* class best suits given requirements
  */
-@Ignore
 public class J11c_AtomicTest {
 
 	@Test

@@ -1,7 +1,6 @@
 package com.nurkiewicz.java8;
 
 import com.nurkiewicz.java8.atomic.BigDecimalAccumulator;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -12,7 +11,6 @@ import static org.fest.assertions.api.Assertions.assertThat;
 /**
  * Implement {@link BigDecimalAccumulator} so that it satisfies tests below.
  */
-@Ignore
 public class J12_BigDecimalAccumulatorTest {
 
 	@Test

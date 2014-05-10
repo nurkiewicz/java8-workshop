@@ -1,6 +1,5 @@
 package com.nurkiewicz.java8;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -17,7 +16,6 @@ import static org.hamcrest.CoreMatchers.is;
 /**
  * Implement simple utility methods for running blocks of code in multiple threads
  */
-@Ignore
 public class J05_MultiRunnerTest {
 
 	@Test

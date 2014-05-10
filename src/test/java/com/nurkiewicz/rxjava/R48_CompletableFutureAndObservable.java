@@ -1,7 +1,6 @@
 package com.nurkiewicz.rxjava;
 
 import com.nurkiewicz.java8.FutureOps;
-import org.junit.Ignore;
 import org.junit.Test;
 import rx.Observable;
 
@@ -16,7 +15,6 @@ import static org.fest.assertions.api.Assertions.assertThat;
 import static org.fest.assertions.api.Assertions.failBecauseExceptionWasNotThrown;
 import static org.hamcrest.core.Is.is;
 
-@Ignore
 public class R48_CompletableFutureAndObservable {
 
 	@Test

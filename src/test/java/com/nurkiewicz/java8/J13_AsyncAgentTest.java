@@ -2,7 +2,6 @@ package com.nurkiewicz.java8;
 
 import com.nurkiewicz.java8.agent.Agent;
 import org.junit.After;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.math.BigInteger;
@@ -22,7 +21,6 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.not;
 
-@Ignore
 public class J13_AsyncAgentTest {
 
 	private ExecutorService pool = Executors.newFixedThreadPool(100);
@@ -34,7 +32,7 @@ public class J13_AsyncAgentTest {
 
 	public void newAgentShouldHaveInitialValue() {
 		//given
-		final Agent<Integer> agent = Agent.create(42);
+		final Agent<Integer> agent = Agent.create(42, pool);
 
 		//when
 		final int actual = agent.get();
@@ -46,7 +44,7 @@ public class J13_AsyncAgentTest {
 	@Test
 	public void shouldApplyTwoChanges() {
 		//given
-		final Agent<BigInteger> agent = Agent.create(BigInteger.ONE);
+		final Agent<BigInteger> agent = Agent.create(BigInteger.ONE, pool);
 
 		//when
 		agent.send(x -> x.add(BigInteger.ONE));
@@ -59,7 +57,7 @@ public class J13_AsyncAgentTest {
 	@Test
 	public void shouldApplyChangesFromOneThreadInOrder() {
 		//given
-		final Agent<String> agent = Agent.create("");
+		final Agent<String> agent = Agent.create("", pool);
 
 		//when
 		agent.send(s -> s + "A");
@@ -76,7 +74,7 @@ public class J13_AsyncAgentTest {
 	public void shouldRunInDifferentThread() {
 		//given
 		final long mainThreadId = Thread.currentThread().getId();
-		final Agent<Long> agent = Agent.create(mainThreadId);
+		final Agent<Long> agent = Agent.create(mainThreadId, pool);
 
 		//when
 		agent.send(x -> Thread.currentThread().getId());
@@ -92,7 +90,7 @@ public class J13_AsyncAgentTest {
 		final List<Agent<String>> agents = IntStream
 				.range(0, totalAgents)
 				.boxed()
-				.map(i -> Agent.create(""))
+				.map(i -> Agent.create("", pool))
 				.collect(toList());
 
 		//when
@@ -119,7 +117,7 @@ public class J13_AsyncAgentTest {
 	@Test
 	public void shouldMutateObjectInsideAgent() throws Exception {
 		//given
-		final Agent<Set<Integer>> agent = Agent.create(new HashSet<>());
+		final Agent<Set<Integer>> agent = Agent.create(new HashSet<>(), pool);
 		final int total = 10_000;
 
 		//when

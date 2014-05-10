@@ -1,16 +1,16 @@
 package com.nurkiewicz.java8;
 
 import com.nurkiewicz.java8.util.LoremIpsum;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Map;
 import java.util.Set;
 
+import static java.util.Comparator.comparing;
+import static java.util.stream.Collectors.toSet;
 import static org.fest.assertions.api.Assertions.assertThat;
 import static org.fest.assertions.api.Assertions.entry;
 
-@Ignore
 public class J08_NewMapMethodsTest {
 
 	@Test
@@ -41,7 +41,10 @@ public class J08_NewMapMethodsTest {
 		Map<String, Integer> wordCount = LoremIpsum.wordCount(loremIpsum);
 
 		//when
-		int totalWords = 0;  //wordCount...
+		int totalWords = wordCount.values()
+				.stream()
+				.mapToInt(x -> x)
+				.sum();
 
 		//then
 		assertThat(totalWords).isEqualTo(441);
@@ -53,7 +56,12 @@ public class J08_NewMapMethodsTest {
 		Map<String, Integer> wordCount = LoremIpsum.wordCount(loremIpsum);
 
 		//when
-		final Set<String> fiveMostCommon = null;   //wordCount...
+		final Set<String> fiveMostCommon = wordCount.entrySet()
+				.stream()
+				.sorted(comparing(Map.Entry<String, Integer>::getValue).reversed())
+				.map(Map.Entry::getKey)
+				.limit(5)
+				.collect(toSet());
 
 		//then
 		assertThat(fiveMostCommon).containsOnly("eget", "sit", "amet", "et", "sed");
@@ -65,7 +73,11 @@ public class J08_NewMapMethodsTest {
 		Map<String, Integer> wordCount = LoremIpsum.wordCount(loremIpsum);
 
 		//when
-		final Set<String> uniqueWords = null;       //wordCount...
+		final Set<String> uniqueWords = wordCount.entrySet()
+				.stream()
+				.filter(e -> e.getValue() == 1)
+				.map(Map.Entry::getKey)
+				.collect(toSet());
 
 		//then
 		assertThat(uniqueWords)

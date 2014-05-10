@@ -1,7 +1,6 @@
 package com.nurkiewicz.java8;
 
 import com.nurkiewicz.java8.atomic.RangeCollector;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static com.jayway.awaitility.Awaitility.await;
@@ -16,7 +15,6 @@ import static org.hamcrest.Matchers.closeTo;
  * Atomic* improvements
  * - Decide which atomic.* class best suits given requirements
  */
-@Ignore
 public class J11b_AtomicTest {
 
 	@Test

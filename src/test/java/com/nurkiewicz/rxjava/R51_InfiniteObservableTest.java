@@ -2,7 +2,6 @@ package com.nurkiewicz.rxjava;
 
 import com.google.common.collect.Lists;
 import com.nurkiewicz.rxjava.util.Indexed;
-import org.junit.Ignore;
 import org.junit.Test;
 import rx.Observable;
 
@@ -18,7 +17,6 @@ import static org.fest.assertions.api.Assertions.assertThat;
  * <p>Use this stream to map from {@link Observable} of type T to {@link Observable} of type Indexed&lt;T&gt;
  * <p>Use custom Observable operator to implement Indexed&lt;T&gt; as well
  */
-@Ignore
 public class R51_InfiniteObservableTest {
 
 	@Test
@@ -67,7 +65,8 @@ public class R51_InfiniteObservableTest {
 
 		//when
 		final Observable<Integer> stream = naturals
-				//TODO
+				.skip(1000)
+				.filter(x -> x % 2 == 0)
 				.take(5);
 
 		//then

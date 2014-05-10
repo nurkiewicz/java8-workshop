@@ -2,7 +2,6 @@ package com.nurkiewicz.java8;
 
 import com.nurkiewicz.java8.people.Person;
 import com.nurkiewicz.java8.people.PersonDao;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -16,7 +15,6 @@ import static org.fest.assertions.api.Assertions.assertThat;
  * - unspecified order
  * - commonPool()
  */
-@Ignore
 public class J10_ParallelStreamsTest {
 
 	private final PersonDao dao = new PersonDao();

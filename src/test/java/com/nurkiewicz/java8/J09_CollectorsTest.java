@@ -2,15 +2,17 @@ package com.nurkiewicz.java8;
 
 import com.nurkiewicz.java8.people.Person;
 import com.nurkiewicz.java8.people.PersonDao;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.util.Collections;
 import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
+import static java.util.stream.Collectors.averagingDouble;
+import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.summarizingInt;
 import static org.fest.assertions.api.Assertions.assertThat;
 import static org.fest.assertions.data.Offset.offset;
 
@@ -18,7 +20,6 @@ import static org.fest.assertions.data.Offset.offset;
  * Explore different Collectors.* implementations
  * - Various collectors, grouping, average, toList, etc.
  */
-@Ignore
 public class J09_CollectorsTest {
 
 	private final PersonDao dao = new PersonDao();
@@ -27,7 +28,9 @@ public class J09_CollectorsTest {
 	public void calculateAverageHeight() throws IOException {
 		final List<Person> people = dao.loadPeopleDatabase();
 
-		final Double averageHeight = 0.0; // people.stream().
+		final Double averageHeight = people
+				.stream()
+				.collect(averagingDouble(Person::getHeight));
 
 		assertThat(averageHeight).isEqualTo(174, offset(0.5));
 	}
@@ -36,7 +39,9 @@ public class J09_CollectorsTest {
 	public void partitionByPeopleAboveAndBelow180CmHeight() throws IOException {
 		final List<Person> people = dao.loadPeopleDatabase();
 
-		final Map<Boolean, List<Person>> peopleByHeight = Collections.emptyMap(); // people.stream().
+		final Map<Boolean, List<Person>> peopleByHeight = people
+				.stream()
+				.collect(Collectors.partitioningBy(p -> p.getHeight() > 180));
 
 		final List<Person> tallPeople = peopleByHeight.get(true);
 		assertThat(tallPeople).hasSize(33);
@@ -49,7 +54,9 @@ public class J09_CollectorsTest {
 	public void groupPeopleByWeight() throws IOException {
 		final List<Person> people = dao.loadPeopleDatabase();
 
-		final Map<Integer, List<Person>> peopleByWeight = Collections.emptyMap(); // people.stream().
+		final Map<Integer, List<Person>> peopleByWeight = people
+				.stream()
+				.collect(groupingBy(Person::getWeight));
 
 		assertThat(peopleByWeight.get(46)).hasSize(1);
 		assertThat(peopleByWeight.get(70)).hasSize(2);
@@ -60,7 +67,9 @@ public class J09_CollectorsTest {
 	public void weightStatistics() throws IOException {
 		final List<Person> people = dao.loadPeopleDatabase();
 
-		final IntSummaryStatistics stats = new IntSummaryStatistics(); // people.stream().
+		final IntSummaryStatistics stats = people
+				.stream()
+				.collect(summarizingInt(Person::getWeight));
 
 		assertThat(stats.getCount()).isEqualTo(137);
 		assertThat(stats.getMin()).isEqualTo(46);
