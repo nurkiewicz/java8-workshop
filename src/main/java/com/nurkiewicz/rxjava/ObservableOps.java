@@ -28,11 +28,11 @@ public class ObservableOps {
 		throw new UnsupportedOperationException("naturals()");
 	}
 
-	public static Observable<Indexed<String>> index(Observable<String> input) {
+	public static <T> Observable<Indexed<T>> index(Observable<T> input) {
 		throw new UnsupportedOperationException("index()");
 	}
 
-	public static Observable.Operator<Indexed<String>, ? super String> withIndex() {
+	public static <T> Observable.Operator<T, Indexed<T>> withIndex() {
 		throw new UnsupportedOperationException("withIndex()");
 	}
 }

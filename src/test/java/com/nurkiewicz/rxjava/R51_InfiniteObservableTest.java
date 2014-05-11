@@ -50,9 +50,10 @@ public class R51_InfiniteObservableTest {
 	@Test
 	public void shouldGenerateNaturalNumbers() throws Exception {
 		//given
+		final Observable<Integer> naturals = ObservableOps.naturals();
 
 		//when
-		Observable<Integer> stream = ObservableOps.naturals();
+		Observable<Integer> stream = naturals.take(5);
 
 		//then
 		final ArrayList<Integer> items = Lists.newArrayList(stream.toBlockingObservable().toIterable());
