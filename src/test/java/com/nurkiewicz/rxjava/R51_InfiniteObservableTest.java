@@ -90,20 +90,6 @@ public class R51_InfiniteObservableTest {
 	}
 
 	@Test
-	public void shouldZipTwoInfiniteSequencesLazily() throws Exception {
-		//given
-		final Observable<String> infinite = Observable.from("X", "Y", "Z").repeat();
-
-		//when
-		final Observable<Indexed<String>> indexed = ObservableOps.index(infinite);
-		final Observable<String> joined = indexed.map(i -> i.getValue() + ":" + i.getIndex()).take(7);
-
-		//then
-		final ArrayList<String> items = Lists.newArrayList(joined.toBlockingObservable().toIterable());
-		assertThat(items).containsExactly("X:0", "Y:1", "Z:2", "X:3", "Y:4", "Z:5", "X:6");
-	}
-
-	@Test
 	public void shouldIndexInputSequencyByApplyingCustomOperator() throws Exception {
 		//given
 		final Observable<String> infinite = Observable.from("X", "Y", "Z").repeat();

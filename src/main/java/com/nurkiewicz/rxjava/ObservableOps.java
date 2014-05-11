@@ -32,7 +32,7 @@ public class ObservableOps {
 		throw new UnsupportedOperationException("index()");
 	}
 
-	public static <T> Observable.Operator<T, Indexed<T>> withIndex() {
+	public static <T> Observable.Operator<Indexed<T>, T> withIndex() {
 		throw new UnsupportedOperationException("withIndex()");
 	}
 }
