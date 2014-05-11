@@ -34,6 +34,7 @@ public class J28_CustomFutureOperatorsTest {
 		pool.shutdownNow();
 	}
 
+	@Test
 	public void shouldTimeoutIfUnderlyingFutureDoesNotResponse() throws Exception {
 		//given
 		CompletableFuture<String> never = FutureOps.never();

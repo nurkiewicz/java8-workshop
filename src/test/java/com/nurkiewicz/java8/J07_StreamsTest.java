@@ -109,7 +109,7 @@ public class J07_StreamsTest {
 	}
 
 	/**
-	 * For each person born after LocalDate.of(1985, Month.DECEMBER, 25) add name to 'names'
+	 * For each person born after LocalDate.of(1985, Month.DECEMBER, 25), add name to 'names'
 	 */
 	@Test
 	public void forEachYoungPerson() {
@@ -130,7 +130,7 @@ public class J07_StreamsTest {
 		final StringBuilder sb = new StringBuilder();
 
 		//when
-		//user iter... here
+		//use iter... here
 
 		//then
 		assertThat(sb.toString()).isEqualToIgnoringCase("123");

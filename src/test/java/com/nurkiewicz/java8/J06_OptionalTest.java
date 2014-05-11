@@ -50,14 +50,14 @@ public class J06_OptionalTest {
 	}
 
 	/**
-	 * Don't catch, call from {@link #tryLookupAddressById(int)}
+	 * Don't change, call from {@link #tryLookupAddressById(int)}
 	 */
 	private Optional<Person> tryFindPerson(int id) {
 		return Optional.ofNullable(findPersonOrNull(id));
 	}
 
 	/**
-	 * Don't catch, call from {@link #tryLookupAddressById(int)}
+	 * Don't change, call from {@link #tryLookupAddressById(int)}
 	 */
 	private Optional<String> tryLookupAddress(Person person) {
 		return Optional.ofNullable(lookupAddressOrNull(person));
