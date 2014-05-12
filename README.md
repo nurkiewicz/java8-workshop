@@ -24,3 +24,6 @@ If you see this error message during maven build:
 it means you are not compiling using Java 8. Download JDK 8 and let maven use it:
 
 	$ export JAVA_HOME=/path/to/jdk8
+
+## License
+This project is released under version 2.0 of the [Apache License](http://www.apache.org/licenses/LICENSE-2.0).
