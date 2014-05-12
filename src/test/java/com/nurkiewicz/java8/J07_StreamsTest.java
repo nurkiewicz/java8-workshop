@@ -105,7 +105,7 @@ public class J07_StreamsTest {
 	public void findUniqueCountryCodes() {
 		final List<Integer> distinctCountryCodes = emptyList(); // PEOPLE.stream()...flatMap()...distinct()
 
-		assertThat(distinctCountryCodes).containsOnly(10, 11, 12);
+		assertThat(distinctCountryCodes).containsExactly(10, 11, 12);
 	}
 
 	/**

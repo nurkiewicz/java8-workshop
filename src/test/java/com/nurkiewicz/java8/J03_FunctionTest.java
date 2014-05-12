@@ -34,7 +34,7 @@ public class J03_FunctionTest {
 	}
 
 	@Test
-	public void shouldProduceAnser() {
+	public void shouldProduceAnswer() {
 		final Supplier<Integer> answerFun = null;
 
 		assertThat(answerFun.get()).isEqualTo(42);

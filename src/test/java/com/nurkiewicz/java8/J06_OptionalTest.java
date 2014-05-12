@@ -28,7 +28,7 @@ public class J06_OptionalTest {
 
 	private String lookupAddressOrNull(Person person) {
 		if (person.getDateOfBirth().isAfter(LocalDate.of(1993, Month.JANUARY, 1))) {
-			return "Some St.";
+			return "Some St.  ";
 		} else {
 			return null;
 		}
