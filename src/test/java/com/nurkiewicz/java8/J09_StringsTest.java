@@ -69,7 +69,7 @@ public class J09_StringsTest {
 	 * Hint: StringJoiner
 	 */
 	@Test
-	public void shouldJoinSeparateInts() throws Exception {
+	public void shouldJoinSeparateStrings() throws Exception {
 		//given
 		String x = "X";
 		String y = "Y";
