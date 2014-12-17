@@ -17,11 +17,11 @@ import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.mock;
 
 /**
- * - Use explicit Function, Predicate, Supplier, Consuner (like Guava)
+ * - Use explicit Function, Predicate, Supplier, Consumer (like Guava)
+ * - Higher order functions - returning lambdas
  * - Change Encrypter to class taking Function<Byte, Byte>
  * - Turning Function, Supplier and Producer into lambda
  * - Method references (method, static method, constructor)
- * - Higher order functions - returning lambdas
  */
 @Ignore
 public class J03_FunctionTest {

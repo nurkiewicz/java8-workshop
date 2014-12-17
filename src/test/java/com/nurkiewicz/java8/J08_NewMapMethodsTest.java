@@ -48,7 +48,7 @@ public class J08_NewMapMethodsTest {
 	}
 
 	@Test
-	public void shouldReturnFourMostCommonWords() throws Exception {
+	public void shouldReturnFiveMostCommonWords() throws Exception {
 		final String loremIpsum = LoremIpsum.text();
 		Map<String, Integer> wordCount = LoremIpsum.wordCount(loremIpsum);
 
