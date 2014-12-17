@@ -14,7 +14,6 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 import static com.nurkiewicz.java8.people.Sex.FEMALE;
-import static java.util.Collections.singletonList;
 import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.toList;
 import static org.fest.assertions.api.Assertions.assertThat;
@@ -99,7 +98,7 @@ public class J08_FilesTest {
 				.flatMap(path ->
 						path.toFile().isDirectory() ?
 								filesInDir(path) :
-								singletonList(path).stream());
+								Stream.of(path));
 	}
 
 	private static Stream<Path> listFiles(Path dir) {
