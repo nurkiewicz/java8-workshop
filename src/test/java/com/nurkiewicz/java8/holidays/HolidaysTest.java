@@ -6,7 +6,7 @@ import java.util.Locale;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 
-public class HolidaysFactoryTest {
+public class HolidaysTest {
 
 	@Test
 	public void shouldReturnPolishHolidays() {
@@ -14,7 +14,7 @@ public class HolidaysFactoryTest {
 		final Locale poland = new Locale("pl", "PL");
 
 		//when
-		final Holidays holidays = HolidaysFactory.of(poland);
+		final Holidays holidays = Holidays.of(poland);
 
 		//then
 		assertThat(holidays).isInstanceOf(PolishHolidays.class);
@@ -26,7 +26,7 @@ public class HolidaysFactoryTest {
 		final Locale america = Locale.US;
 
 		//when
-		final Holidays holidays = HolidaysFactory.of(america);
+		final Holidays holidays = Holidays.of(america);
 
 		//then
 		assertThat(holidays).isInstanceOf(AmericanHolidays.class);

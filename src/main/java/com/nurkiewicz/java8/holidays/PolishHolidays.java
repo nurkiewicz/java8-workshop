@@ -53,27 +53,4 @@ public class PolishHolidays implements Holidays {
 		LocalDate easterThatYear = Easter.sundayFor(Year.of(date.getYear()));
 		return date.equals(easterThatYear.plusDays(60));
 	}
-
-	@Override
-	public boolean isWorkingDay(LocalDate date) {
-		return !isHoliday(date);
-	}
-
-	@Override
-	public LocalDate nextHolidayAfter(LocalDate date) {
-		LocalDate cur = date;
-		do {
-			cur = cur.plusDays(1);
-		} while(isWorkingDay(cur));
-		return cur;
-	}
-
-	@Override
-	public LocalDate nextWorkingDayAfter(LocalDate date) {
-		LocalDate cur = date;
-		do {
-			cur = cur.plusDays(1);
-		} while(isHoliday(cur));
-		return cur;
-	}
 }
