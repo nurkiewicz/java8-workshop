@@ -4,7 +4,13 @@ import org.junit.Test;
 
 import java.time.LocalDate;
 
-import static java.time.Month.*;
+import static java.time.Month.APRIL;
+import static java.time.Month.AUGUST;
+import static java.time.Month.DECEMBER;
+import static java.time.Month.JANUARY;
+import static java.time.Month.JUNE;
+import static java.time.Month.MAY;
+import static java.time.Month.NOVEMBER;
 import static org.fest.assertions.api.Assertions.assertThat;
 
 /**

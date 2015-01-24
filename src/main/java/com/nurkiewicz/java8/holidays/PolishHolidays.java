@@ -8,7 +8,11 @@ import java.time.MonthDay;
 import java.time.Year;
 import java.util.Set;
 
-import static java.time.Month.*;
+import static java.time.Month.AUGUST;
+import static java.time.Month.DECEMBER;
+import static java.time.Month.JANUARY;
+import static java.time.Month.MAY;
+import static java.time.Month.NOVEMBER;
 
 public class PolishHolidays implements Holidays {
 
