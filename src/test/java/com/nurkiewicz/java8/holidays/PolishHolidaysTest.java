@@ -10,7 +10,7 @@ import static java.time.Month.DECEMBER;
 import static java.time.Month.JANUARY;
 import static java.time.Month.JUNE;
 import static java.time.Month.MAY;
-import static java.time.Month.OCTOBER;
+import static java.time.Month.NOVEMBER;
 import static org.fest.assertions.api.Assertions.assertThat;
 
 /**
@@ -30,8 +30,8 @@ public class PolishHolidaysTest {
 		assertHoliday(LocalDate.of(2014, MAY, 1));
 		assertHoliday(LocalDate.of(2014, MAY, 3));
 		assertHoliday(LocalDate.of(2014, AUGUST, 15));
-		assertHoliday(LocalDate.of(2014, OCTOBER, 1));
-		assertHoliday(LocalDate.of(2014, OCTOBER, 11));
+		assertHoliday(LocalDate.of(2014, NOVEMBER, 1));
+		assertHoliday(LocalDate.of(2014, NOVEMBER, 11));
 		assertHoliday(LocalDate.of(2014, DECEMBER, 25));
 		assertHoliday(LocalDate.of(2014, DECEMBER, 26));
 	}

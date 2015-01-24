@@ -12,7 +12,7 @@ import static java.time.Month.AUGUST;
 import static java.time.Month.DECEMBER;
 import static java.time.Month.JANUARY;
 import static java.time.Month.MAY;
-import static java.time.Month.OCTOBER;
+import static java.time.Month.NOVEMBER;
 
 public class PolishHolidays implements Holidays {
 
@@ -22,8 +22,8 @@ public class PolishHolidays implements Holidays {
 			MonthDay.of(MAY, 1),
 			MonthDay.of(MAY, 3),
 			MonthDay.of(AUGUST, 15),
-			MonthDay.of(OCTOBER, 1),
-			MonthDay.of(OCTOBER, 11),
+			MonthDay.of(NOVEMBER, 1),
+			MonthDay.of(NOVEMBER, 11),
 			MonthDay.of(DECEMBER, 25),
 			MonthDay.of(DECEMBER, 26)
 	);
