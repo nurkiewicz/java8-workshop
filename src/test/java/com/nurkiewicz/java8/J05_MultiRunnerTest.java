@@ -52,4 +52,16 @@ public class J05_MultiRunnerTest {
 		await().untilCall(to(counter).sum(), is(1L + 2L + 3L));
 	}
 
+	@Test
+	public void shouldRunTheSameTaskMultipleTimes() throws Exception {
+		//given
+		final LongAdder counter = new LongAdder();
+
+		//when
+		MultiRunner.runMultiThreaded(3, () -> counter.add(7));
+
+		//then
+		await().untilCall(to(counter).sum(), is(7L + 7L + 7L));
+	}
+
 }

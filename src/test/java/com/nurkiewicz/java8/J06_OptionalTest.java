@@ -16,20 +16,31 @@ import static org.fest.assertions.api.Assertions.assertThat;
  */
 public class J06_OptionalTest {
 
+	private static final int PERSON_ID_WITH_NO_ADDRESS = 1;
+	private static final int PERSON_ID_WITH_ADDRESS = 2;
+	private static final int UNAVAILABLE_PERSON_ID = 0;
+
 	private Person findPersonOrNull(int id) {
-		if (id > 0) {
-			return new Person("James", MALE, 62, 169, LocalDate.of(1970 + id, Month.DECEMBER, 21));
-		} else {
-			return null;
+		switch(id) {
+			case PERSON_ID_WITH_NO_ADDRESS:
+				return new Person("James", MALE, 62, 169, LocalDate.of(2007, Month.DECEMBER, 21));
+			case PERSON_ID_WITH_ADDRESS:
+				return new Person("John", MALE, 62, 169, LocalDate.of(1985, Month.DECEMBER, 21));
+			case UNAVAILABLE_PERSON_ID:
+				return null;
+			default:
+				return null;
 		}
 	}
 
 	private String lookupAddressOrNull(Person person) {
-		if (person.getDateOfBirth().isAfter(LocalDate.of(1993, Month.JANUARY, 1))) {
-			return "Some St.  ";
-		} else {
-			return null;
+		if (person.getDateOfBirth().isAfter(LocalDate.of(2000, Month.JANUARY, 1))) {
+			return "";
 		}
+		if (person.getDateOfBirth().isAfter(LocalDate.of(1980, Month.JANUARY, 1))) {
+			return " Some St.   ";
+		}
+		return null;
 	}
 
 	private String lookupAddressByIdOrNull(int id) {
@@ -74,16 +85,16 @@ public class J06_OptionalTest {
 
 	@Test
 	public void nulls() {
-		assertThat(lookupAddressByIdOrNull(-1)).isNull();
-		assertThat(lookupAddressByIdOrNull(21)).isNull();
-		assertThat(lookupAddressByIdOrNull(41)).isEqualTo("Some St.");
+		assertThat(lookupAddressByIdOrNull(UNAVAILABLE_PERSON_ID)).isNull();
+		assertThat(lookupAddressByIdOrNull(PERSON_ID_WITH_NO_ADDRESS)).isNull();
+		assertThat(lookupAddressByIdOrNull(PERSON_ID_WITH_ADDRESS)).isEqualTo("Some St.");
 	}
 
 	@Test
 	public void optionals() {
-		assertThat(tryLookupAddressById(-1).isPresent()).isFalse();
-		assertThat(tryLookupAddressById(21).isPresent()).isFalse();
-		assertThat(tryLookupAddressById(41).get()).isEqualTo("Some St.");
+		assertThat(tryLookupAddressById(UNAVAILABLE_PERSON_ID).isPresent()).isFalse();
+		assertThat(tryLookupAddressById(PERSON_ID_WITH_NO_ADDRESS).isPresent()).isFalse();
+		assertThat(tryLookupAddressById(PERSON_ID_WITH_ADDRESS).get()).isEqualTo("Some St.");
 	}
 
 }
