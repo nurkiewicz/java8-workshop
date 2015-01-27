@@ -37,7 +37,7 @@ public class J07_StreamsTest {
 	);
 
 	@Test
-	public void shouldFindFemales() {
+	public void doesAnyFemaleExist() {
 		final boolean anyFemale = PEOPLE.
 				stream().
 				anyMatch(p -> p.getSex() == FEMALE);
