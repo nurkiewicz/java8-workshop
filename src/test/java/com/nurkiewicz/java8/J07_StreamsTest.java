@@ -66,6 +66,16 @@ public class J07_StreamsTest {
 		assertThat(allSlim).isFalse();
 	}
 
+	/**
+	 * Are all people above 80 kg?
+	 */
+	@Test
+	public void areAllPeopleNotSlim() {
+		final boolean allNotSlim = true;
+
+		assertThat(allNotSlim).isFalse();
+	}
+
 	@Test
 	public void findTallestPerson() {
 		final Optional<Person> max = Optional.empty();
