@@ -35,7 +35,7 @@ public class J07_StreamsTest {
 	);
 
 	@Test
-	public void shouldFindFemales() {
+	public void doesAnyFemaleExist() {
 		final boolean anyFemale = PEOPLE.
 				stream().
 				anyMatch(p -> p.getSex() == FEMALE);
@@ -64,6 +64,18 @@ public class J07_StreamsTest {
 				.allMatch(p -> p.getWeight() < 80);
 
 		assertThat(allSlim).isFalse();
+	}
+
+	/**
+	 * Are all people above 80 kg?
+	 */
+	@Test
+	public void areAllPeopleNotSlim() {
+		final boolean allNotSlim = PEOPLE
+				.stream()
+				.allMatch(p -> p.getWeight() > 80);
+
+		assertThat(allNotSlim).isFalse();
 	}
 
 	@Test

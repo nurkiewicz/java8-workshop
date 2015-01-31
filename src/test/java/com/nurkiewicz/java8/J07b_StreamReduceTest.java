@@ -84,7 +84,7 @@ public class J07b_StreamReduceTest {
 		final List<Integer> input = Arrays.asList(2, 3, 4, 5, 6);
 
 		//when
-		final List<Integer> doubledPrimes = input
+		final List<Integer> onlyEvenNumbers = input
 				.stream()
 				.reduce(
 						new ArrayList<>(),
@@ -101,7 +101,7 @@ public class J07b_StreamReduceTest {
 				);
 
 		//then
-		assertThat(doubledPrimes).containsExactly(2, 4, 6);
+		assertThat(onlyEvenNumbers).containsExactly(2, 4, 6);
 	}
 
 }
