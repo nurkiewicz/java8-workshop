@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 
@@ -16,9 +17,11 @@ import static java.util.stream.Collectors.toList;
 public class PersonDao {
 
 	public List<Person> loadPeopleDatabase() {
-		try (BufferedReader bufferedReader = open("/people.csv")) {
-			return bufferedReader
-					.lines()
+		try (
+				BufferedReader bufferedReader = open("/people.csv");
+				Stream<String> lines = bufferedReader.lines()
+		) {
+			return lines
 					.skip(1)
 					.map(this::parsePerson)
 					.filter(p -> !p.getName().isEmpty())
