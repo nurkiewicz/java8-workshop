@@ -70,8 +70,8 @@ public class J07b_StreamReduceTest {
 		final String result = input.stream()
 				.reduce(
 						new StringBuilder(),
-						(acc, x) -> new StringBuilder().append(acc).append(x),
-						(sb1, sb2) -> new StringBuilder().append(sb1).append(sb2))
+						(acc, x) -> new StringBuilder(acc).append(x),
+						(sb1, sb2) -> new StringBuilder(sb1).append(sb2))
 				.toString();
 
 		//then
