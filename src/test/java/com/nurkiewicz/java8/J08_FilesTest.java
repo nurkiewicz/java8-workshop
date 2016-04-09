@@ -45,7 +45,7 @@ public class J08_FilesTest {
 	}
 
 	/**
-	 * Hint: Comparators.comparing()
+	 * Hint: Comparator.comparing()
 	 */
 	@Test
 	public void shouldSortFemalesByHeightDesc() throws IOException {
