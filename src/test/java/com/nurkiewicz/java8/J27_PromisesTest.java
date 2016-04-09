@@ -1,4 +1,4 @@
-package com.nurkiewicz.rxjava;
+package com.nurkiewicz.java8;
 
 import com.nurkiewicz.java8.util.AbstractFuturesTest;
 import org.junit.Ignore;
