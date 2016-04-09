@@ -23,6 +23,9 @@ public class LoremIpsum {
 		return IOUtils.toString(LoremIpsum.class.getResourceAsStream("/lorem-ipsum.txt"));
 	}
 
+	/**
+	 * Case insensitive
+	 */
 	public static Map<String, Integer> wordCount(String text) {
 		throw new UnsupportedOperationException("wordCount()");
 	}
