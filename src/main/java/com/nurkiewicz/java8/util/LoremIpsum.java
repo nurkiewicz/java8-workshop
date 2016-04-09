@@ -24,6 +24,9 @@ public class LoremIpsum {
 		return IOUtils.toString(LoremIpsum.class.getResourceAsStream("/lorem-ipsum.txt"));
 	}
 
+	/**
+	 * Case insensitive
+	 */
 	public static Map<String, Integer> wordCount(String text) {
 		final List<String> words = splitWords(text);
 		Map<String, Integer> wordCount = new HashMap<>();
