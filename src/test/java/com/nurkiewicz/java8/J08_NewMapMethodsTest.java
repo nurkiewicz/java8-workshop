@@ -6,7 +6,6 @@ import org.junit.Test;
 import java.util.Map;
 import java.util.Set;
 
-import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.toSet;
 import static org.fest.assertions.api.Assertions.assertThat;
 import static org.fest.assertions.api.Assertions.entry;
@@ -58,7 +57,7 @@ public class J08_NewMapMethodsTest {
 		//when
 		final Set<String> fiveMostCommon = wordCount.entrySet()
 				.stream()
-				.sorted(comparing(Map.Entry<String, Integer>::getValue).reversed())
+				.sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
 				.map(Map.Entry::getKey)
 				.limit(5)
 				.collect(toSet());
